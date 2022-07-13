@@ -1,9 +1,9 @@
 body {
-    background-color: #ffcfb8;
+    background-color: #d0ffa0;
 }
 
 h1 {
-    background-color: #ffae8a;
+    background-color: #96ff18;
     text-align: center;
 }
 p
@@ -21,7 +21,7 @@ li
     text-align: center;
     border-radius: 10%;
     width: 80px;
-    background-color: #ffae8a;
+    background-color: #96ff18;
     margin-top: 10px;
     outline: 2px solid black;
 }
