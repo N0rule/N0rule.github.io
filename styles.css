@@ -1,7 +1,27 @@
 body {
-    background-color: olive;
+    background-color: #ffcfb8;
 }
 
 h1 {
-    background-color: #ff827b;
+    background-color: #ffae8a;
+    text-align: center;
+}
+p
+{
+    text-align: center;
+}
+ul{
+    list-style-position: outside;
+
+}
+
+li
+{
+    margin: auto;
+    text-align: center;
+    border-radius: 10%;
+    width: 80px;
+    background-color: #ffae8a;
+    margin-top: 10px;
+    outline: 2px solid black;
 }
