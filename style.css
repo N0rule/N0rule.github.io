@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  background-color: #404258;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+section#about-me {
+  background-color: #474E68;
+  border: 3px solid #6B728E;
+  border-radius: 25px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+}
+
+section#about-me p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+section#social-media {
+  text-align: center;
+}
+
+section h2 {
+  font-size: 32px;
+  margin: 0 0 20px 0;
+}
+
+section p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.social-media-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  transition: background-color 0.3s ease;
+  background-color: #474E68;
+  flex: 0 0 30%;
+  border: 3px solid #6B728E;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  background-color: #6B728E;
+}
+
+.card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.5);
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+}
+
+.card a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+#profile-picture {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: 5px solid #6B728E;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  transition: transform 0.3s ease;
+}
+
+#profile-picture:hover {
+  transform: translateY(-20px);
+}
+
+.profile-picture-container {
+  position: relative;
+}
+
+.hidden-text {
+  font-size: 30px;
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+#profile-picture:hover + .hidden-text {
+  opacity: 1;
+  animation: slide-text 0.5s ease forwards;
+}
