@@ -1,3 +1,87 @@
+/* theme colors */
+body.light {
+  background-color: #FEFCF3;
+  color: #000;
+}
+body.dark {
+  background-color: #404258;
+  color: #fff;
+}
+
+body.dark section#about-me {
+  background-color: #474E68;
+  border: 3px solid #6B728E;
+}
+body.light section#about-me {
+  background-color: #b9b9b9;
+  border: 3px solid #DBA39A;
+}
+body.dark #theme-button img {
+  border: 3px solid #6B728E;
+  content: url("https://cdn-icons-png.flaticon.com/512/1312/1312372.png");
+}
+body.light #theme-button img {
+  border: 3px solid #DBA39A;
+  content: url("https://cdn-icons-png.flaticon.com/512/1312/1312348.png");
+}
+
+body.dark .card {
+  background-color: #474E68;
+  border: 3px solid #6B728E;
+}
+body.light .card {
+  background-color: #b9b9b9;
+  border: 3px solid #DBA39A;
+}
+body.dark .card:hover {
+  background-color: #6B728E;
+}
+body.light .card:hover {
+  background-color: #DBA39A;
+}
+body.dark .card a {
+  color: white;
+}
+body.light .card a {
+  color: black;
+}
+body.dark #profile-picture {
+  border: 5px solid #6B728E;
+}
+body.light #profile-picture {
+  border: 5px solid #DBA39A;
+}
+body.dark.hidden-text {
+  color: white;
+}
+body.light .hidden-text {
+  color: black;
+}
+/* theme colors end */
+
+#theme-button {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  display: block;
+  display: block;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+.theme-button-container {
+  position: relative;
+}
+
+#theme-button img {
+  border-radius: 50%;
+  transition: url 0.3s ease;
+  width: 70px;
+  height: 70px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,8 +90,6 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  color: #fff;
-  background-color: #404258;
 }
 
 .container {
@@ -21,17 +103,13 @@ section {
 }
 
 section#about-me {
-  background-color: #474E68;
-  border: 3px solid #6B728E;
+  transition: background-color 0.3s ease;
+  font-size: 18px;
+  line-height: 1.5;
   border-radius: 25px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   padding: 40px;
   text-align: center;
-}
-
-section#about-me p {
-  font-size: 18px;
-  line-height: 1.5;
 }
 
 section#social-media {
@@ -56,18 +134,12 @@ section p {
 
 .card {
   transition: background-color 0.3s ease;
-  background-color: #474E68;
   flex: 0 0 30%;
-  border: 3px solid #6B728E;
   border-radius: 5px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 20px;
   margin-bottom: 20px;
-}
-
-.card:hover {
-  background-color: #6B728E;
 }
 
 .card img {
@@ -87,15 +159,14 @@ section p {
 
 .card a {
   display: block;
-  color: #fff;
   text-decoration: none;
 }
 
 #profile-picture {
+  transition: background-color 0.3s ease;
   border-radius: 50%;
   width: 200px;
   height: 200px;
-  border: 5px solid #6B728E;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   display: block;
   margin: 0 auto;
@@ -120,7 +191,6 @@ section p {
   right: 0;
   margin: 0 auto;
   text-align: center;
-  color: #fff;
   opacity: 0;
   transition: opacity 0.15s ease;
 }
