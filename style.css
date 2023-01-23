@@ -187,7 +187,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: auto 0px;
 }
 
 .container {
@@ -422,4 +422,5 @@ section p {
   text-decoration: none;
   padding: 15px;
   border-radius: 25px;
+  white-space: nowrap;
 }
