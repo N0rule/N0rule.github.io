@@ -12,7 +12,8 @@
   --light-fill: #b9b9b9;
 
   /*  for .top class*/
-  --offset: 50%;
+  --offset: 450px;
+  --fade: 80px;
 }
 
 /* theme colors */
@@ -85,12 +86,28 @@
   color: var(--dark-text);
   background-color: var(--dark-fill);
   border: 3px solid var(--dark-border);
+
 }
 
 .light .top {
   color: var(--light-text);
   background-color: var(--light-fill);
   border: 3px solid var(--light-border);
+
+}
+
+.dark .top::before {
+  color: var(--dark-text);
+
+  border-top: 5px solid var(--dark-border);
+  border-right: 5px solid var(--dark-border);
+}
+
+.light .top::before {
+  color: var(--light-text);
+
+  border-top: 5px solid var(--light-border);
+  border-right: 5px solid var(--light-border);
 }
 
 /* About me colors */
@@ -139,8 +156,6 @@
   border: 3px solid var(--light-border);
 }
 
-
-
 .dark #model-viewer {
   border: 3px solid var(--dark-border);
 }
@@ -175,6 +190,15 @@
 .light .mcard a {
   color: var(--light-text);
 }
+
+.dark .mcard a {
+  color: var(--dark-text);
+}
+
+.light .mcard a {
+  color: var(--light-text);
+}
+
 /* theme colors end */
 
 * {
@@ -411,16 +435,31 @@ section p {
   text-decoration: none;
 }
 
+.container-top {
+  display: flex;
+  align-items: flex-end;
+  width: 60px;
+  justify-self: end;
+  justify-content: flex-end;
+  -webkit-mask: linear-gradient(#0000 calc(100vh + var(--offset)), #000 calc(100vh + var(--offset) + var(--fade)));
+}
+
 .top {
+
   position: sticky;
   bottom: 20px;
-  place-self: end;
-  margin-top: calc(100vh + var(--offset));
   margin-right: 10px;
-
   /* visual styling */
-  text-decoration: none;
-  padding: 15px;
-  border-radius: 25px;
-  white-space: nowrap;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 10px;
+}
+
+.top:before {
+  content: "";
+  position: absolute;
+  inset: 30%;
+  transform: translateY(20%) rotate(-45deg);
+  border-top: 5px solid #fff;
+  border-right: 5px solid #fff;
 }
