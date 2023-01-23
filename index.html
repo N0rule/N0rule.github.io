@@ -1,71 +1,183 @@
 <!DOCTYPE html>
 <html>
+
+<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.148.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.148.0/examples/jsm/"
+    }
+  }
+</script>
+
 <head>
   <title>N0rule's Landing Page</title>
+  <link rel="shortcut icon" href="images/favicons/favicon.ico">
+  <link rel="icon" sizes="16x16 32x32 64x64" href="images/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="196x196" href="images/favicons/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="images/favicons/favicon-160.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="images/favicons/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="images/favicons/favicon-64.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16.png">
+  <link rel="apple-touch-icon" href="images/favicons/favicon-57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/favicon-114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/favicon-72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/favicons/favicon-144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/favicon-60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="images/favicons/favicon-120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="images/favicons/favicon-76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/favicon-152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/favicon-180.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="images/favicons/favicon-144.png">
+  <meta name="msapplication-config" content="images/favicons/browserconfig.xml">
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="script.js"></script>
+  <script type="module" src="3d.js"></script>
 </head>
+
 <body class="dark">
   <main>
     <div class="container">
-      <div class="theme-button-container">
-        <button id="theme-button">
-          <img src="https://cdn-icons-png.flaticon.com/512/1312/1312348.png" alt="theme-button"/>
-        </button>
-        </div>
-<div class="profile-picture-container">
-  <img src="https://i.imgur.com/R9ngEQT.png" alt="N0rule's profile picture" id="profile-picture">
-  <div class="hidden-text">N0rule</div>
-</div>
+      <button id="theme-button">
+        <img src="https://cdn-icons-png.flaticon.com/512/1312/1312348.png" alt="theme-button" />
+      </button>
+      <div class="profile-picture-container">
+        <img src="images/profile-picture.png" alt="N0rule's profile picture" id="profile-picture">
+        <div class="pphidden-text">N0rule</div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about-me">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#social-media">Social Media</a></li>
+        </ul>
+      </nav>
       <section id="about-me">
         <h2>About Me</h2>
-        <p>Hi, my name is <b>Vladimir "N0rule" Dvoruk</b> and I am a tech-savvy individual with a passion for all things IT and computer-related. I am constantly learning and staying up-to-date with the latest trends and developments in the industry, and I have a particular interest in 3D modeling using Blender and creating games in Unity,i am also a like to code and have experience with a variety of programming languages. I enjoy tackling complex problems and finding creative solutions through coding.. In my free time, I enjoy building and customizing my own PCs, as well as playing video games and watching anime.
-          <br><br>
-          When I'm not busy learning about new technologies or coding, you can find me playing video games or watching anime. I also enjoy participating in online communities,forums and open to connecting with others who share similar interests and discussing the latest tech trends. Feel free to reach out using social media and learn more about me in the conversation!</p>       
+        <p>Hi, my name is <b>Vladimir "N0rule" Dvoruk</b> and I am a tech-savvy individual with a passion for all
+          things
+          IT and computer-related.I am constantlylearning and staying up-to-date with the latest trends and
+          developments
+          in the industry,and I have aparticular interest in 3D modeling using Blender and creating games in Unity,i
+          am
+          also a like to code and haveexperience with a variety of programming languages.I enjoy tackling complex
+          problems and finding creativesolutions through coding.In my free time, I enjoy building and customizing my
+          own
+          PCs, as well as playingvideo games and watchinganime.
+          <br><br>When I'm not busy learning about new technologies or coding,you can find me playing video games or
+          watchinganime.I also enjoy participating in online communities,forums and open to connecting with others who
+          sharesimilarinterests and discussing the latest tech trends.Feel free to reach out using social media and
+          learnmore about me in the conversation!
+        </p>
       </section>
-    <section id="social-media">
-        <h2>Social Media</h2>
-        <div class="social-media-cards">
-          <div class="card">
-		  <a href="https://twitter.com/_N0rule_">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter logo">
-            <h3>Twitter</h3>
-            @_n0rule_</a>
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-cards">
+          <div class="projcard">
+            <h2>Discord Bot</h2>
+            <div class="emi_bot_container">
+              <img id="emi_bot" src="images/emi_bot.png" alt="Bot Img">
+              <p>Meet Emi,ultimate discord companion! Emi is a versatile bot that offers a wide range of
+                functionalities, from administrative commands to fun and entertainment.Emi can easily manage
+                server with commands like kick, ban, and mute. Emi also has a built-in music player that allows to play
+                your favorite songs and create custom playlists. Additionally, Emi has an economy system that
+                allows you to earn coins. Emi also offers Reaction, covid, pokemon commands.</p>
+            </div>
           </div>
-          <div class="card">
-		  <a href="https://discord.gg/cfa3aFFtAX">
-            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord logo">
-            <h3>Discord</h3>
-            n0rule#0319</a>
+          <div class="projcard">
+            <h2>3D Models</h2>
+            <p>I have always been fascinated by the possibilities of virtual reality and the immersive
+              experiences it can provide. That's why I decided to dive into the world of VRChat, a popular social VR
+              platform where users can create and share their own content.<br><br>
+              One of my first projects in VRChat was creating a series of custom avatars for players to use. I wanted to
+              create a variety of different styles and themes, from fantasy characters to anime-inspired designs. I put
+              a lot of time and effort into the details of each model, making sure they were both unique and
+              high-quality. <br><br>
+              In addition to creating avatars for VRChat, I also enjoy creating 3D models for game development. I have
+              worked on several game projects in the past, creating characters, props, and environments for different
+              genres of games. I find it extremely rewarding to see my models come to life in a game and be enjoyed by
+              players.<br><br>
+              All of my 3D models are created using Blender. I am
+              constantly learning new techniques and experimenting with different materials and lighting to improve my
+              skills.
+            </p>
+            <img src="images/render1.png" alt="3D Model">
+            <img src="images/render2.png" alt="3D Model">
+            <img src="images/render3.png" alt="3D Model">
+            <!-- <canvas id="model-viewer"></canvas> В Процессе.. -->
           </div>
-          <div class="card">
-		  <a href="https://telegram.me/N0rule">
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram logo">
-            <h3>Telegram</h3>
-            @N0rule</a>		
-          </div>
-          <div class="card">
-		  <a href="https://www.instagram.com/n0rule_">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram logo">
-            <h3>Instagram</h3>
-            @n0rule_</a>		
-          </div>
-		  <div class="card">
-		  <a href="https://github.com/N0rule">
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png" alt="Github logo">
-            <h3>Github</h3>
-            @N0rule</a>		
-          </div>
-          <div class="card">
-		  <a href="https://steamcommunity.com/id/N0rule">
-            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670382.png" alt="Steam logo">
-            <h3>Steam</h3>
-            @N0rule</a>		
-          </div>
+          <div class="projcard">
+            <h2>Games</h2>
+            <p>Introducing "Zombie Shooter", survival game created using Unity. In this game, players are
+              tasked with fighting off hordes of zombies using a variety of weapons, including a pistol, shotgun, rifle,
+              and sniper rifle. Each weapon has its own unique gimmick, adding an extra layer of strategy and excitement
+              to the gameplay.<br><br>
+              Pistol, for example, is perfect for taking out zombies at close range, while the shotgun is ideal for
+              clearing out large groups of enemies. The rifle has laser to help with aim, and can be used in both close
+              and
+              long-range combat, sniper rifle allows players to take out zombies from a safe distance. <br><br>
+              In addition to the weapons, players can also use various items, such as health packs and ammo, to aid in
+              their survival.</p>
+            <video src="video/game-video.mp4" autoplay loop muted playsinline>
           </div>
         </div>
       </section>
+      <section id="social-media">
+        <h2>Social Media</h2>
+        <div class="social-media-cards">
+          <div class="mcard">
+            <a href="https://twitter.com/_N0rule_">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter logo">
+              <h3>Twitter</h3>
+              @_n0rule_
+            </a>
+          </div>
+          <div class="mcard">
+            <a href="https://discord.gg/cfa3aFFtAX">
+              <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord logo">
+              <h3>Discord</h3>
+              n0rule#0319
+            </a>
+          </div>
+          <div class="mcard">
+            <a href="https://telegram.me/N0rule">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram logo">
+              <h3>Telegram</h3>
+              @N0rule
+            </a>
+          </div>
+          <div class="mcard">
+            <a href="https://www.instagram.com/n0rule_">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram logo">
+              <h3>Instagram</h3>
+              @n0rule_
+            </a>
+          </div>
+          <div class="mcard">
+            <a href="https://github.com/N0rule">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png" alt="Github logo">
+              <h3>Github</h3>
+              @N0rule
+            </a>
+          </div>
+          <div class="mcard">
+            <a href="https://steamcommunity.com/id/N0rule">
+              <img src="https://cdn-icons-png.flaticon.com/512/3670/3670382.png" alt="Steam logo">
+              <h3>Steam</h3>
+              @N0rule
+            </a>
+          </div>
+        </div>
+    </div>
+    </section>
+    </div>
     </div>
   </main>
+  <a href="#" class="top">Back to Top &#8593;</a>
 </body>
+
 </html>
