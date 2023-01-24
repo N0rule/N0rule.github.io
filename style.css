@@ -448,7 +448,7 @@ section#skills {
   transition: background-color 1s,border 1s,transform 0.5s;
 }
 
-.projcard img:hover {
+.projcard img:hover,video:hover {
   transform: scale(1.7);
   z-index: 1;  
 }
@@ -466,6 +466,7 @@ section#skills {
   width: 100%;
   border-radius: 25px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s;
 }
 
 
