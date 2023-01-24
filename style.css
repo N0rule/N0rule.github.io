@@ -268,21 +268,29 @@ body {
 
 /* THEME BUTTON */
 
-#theme-button {
-  margin-top: 10px;
-  margin-bottom: 30px;
+button#theme-button {
+  margin-top: 15px;
   display: block;
   border: none;
   background-color: transparent;
   position: relative;
-
+  transition: transform 0.5s;
 }
+
+#theme-button:hover{
+  transform: scale(1.2);
+}
+
+
+
+
 
 #theme-button img {
   border-radius: 50%;
   width: 70px;
   height: 70px;
   cursor: pointer;
+  transition: border 1s;
 }
 
 /* PROFILE PICTURE */
@@ -542,7 +550,7 @@ section p {
   width: 50px;
   height: 50px;
   margin-bottom: 20px;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s;
 }
 
 .mcard:hover img {
