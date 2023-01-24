@@ -72,6 +72,7 @@
 
 .light nav a:hover {
   background-color: var(--light-hover);
+
 }
 
 .dark nav a {
@@ -223,10 +224,13 @@ body {
 #theme-button {
   margin-top: 10px;
   margin-bottom: 30px;
+  margin-left: 10px;
+  left: 1px;
   display: block;
   border: none;
   background-color: transparent;
-  position: relative;
+  position: absolute;
+  
 }
 
 #theme-button img {
@@ -234,6 +238,7 @@ body {
   transition: url 0.3s ease;
   width: 70px;
   height: 70px;
+  cursor: pointer;
 }
 
 #profile-picture {
@@ -242,7 +247,7 @@ body {
   height: 200px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
-  margin-left: -3.5%;
+  margin-bottom: -10px;
 }
 
 #profile-picture:hover {
@@ -259,7 +264,7 @@ body {
   font-size: 30px;
   opacity: 0;
   transition: opacity 0.15s ease;
-  margin-left: -3%;
+  margin-bottom: 20px;
 }
 
 #profile-picture:hover+.pphidden-text {
@@ -268,33 +273,39 @@ body {
 }
 
 nav {
-  display: block;
   margin: auto 15%;
   border-radius: 25px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
-  padding: 25px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
 }
 
 nav ul {
   list-style: none;
   /* removes bullet points from the list */
   display: flex;
+  justify-content: center;
+  align-items: center;
   /* makes the list items appear in a row */
-  justify-content: space-between;
   /* evenly spaces the list items */
-  margin: 0;
   /* removes margin from the list */
   font-size: 18px;
 }
 
 nav a {
+  flex: 1;
+  text-align: center;
   text-decoration: none;
   /* removes underline from the links */
   padding: 10px;
   /* adds padding to the links */
   border-radius: 25px;
-  transition: background-color, font-size 0.3s ease;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1000px));
+  transition: font-size .5s, background-color .5s;
 }
 
 nav a:hover {
@@ -360,7 +371,6 @@ section#projects {
   border-radius: 25px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   padding: 40px;
-  text-align: left;
   margin-bottom: 40px;
   display: flex;
   flex-wrap: wrap;
@@ -369,6 +379,8 @@ section#projects {
 
 .projcard p {
   margin-bottom: 25px;
+  text-align: left;
+
 }
 
 .projcard img {
