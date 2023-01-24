@@ -445,8 +445,15 @@ section#skills {
   width: 30%;
   border-radius: 25px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  transition: background-color 1s,border 1s;
+  transition: background-color 1s,border 1s,transform 0.5s;
 }
+
+.projcard img:hover {
+  transform: scale(1.7);
+  z-index: 1;  
+}
+
+
 
 .projcard#hosting img {
   width: 100%;
