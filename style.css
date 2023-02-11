@@ -87,7 +87,6 @@
 
 .light nav a:hover {
   background-color: var(--light-hover);
-
 }
 
 .dark nav a {
@@ -144,7 +143,7 @@
   border: 3px solid var(--light-border);
 }
 
-/* Project me colors */
+/* Project colors */
 .dark .projcard {
   background-color: var(--dark-fill);
   border: 3px solid var(--dark-border);
@@ -155,6 +154,36 @@
   border: 3px solid var(--light-border);
 }
 
+.light .download-button:hover {
+  background-color: var(--light-hover);
+  cursor: pointer;
+}
+
+.dark .download-button:hover {
+  background-color: var(--dark-hover);
+  cursor: pointer;
+}
+.light .download-button {
+  background-color: var(--light-fill);
+  border: 2px solid var(--light-border);
+  color: var(--light-text);
+}
+
+.dark .download-button {
+  background-color: var(--dark-fill);
+  border: 2px solid var(--dark-border);
+  color: var(--dark-text);
+}
+.dark .download-button a {
+  color: var(--dark-text);
+}
+
+.light .download-button a {
+  color: var(--light-text);
+}
+
+
+
 .dark .projcard img {
   border: 3px solid var(--dark-border);
 }
@@ -163,6 +192,13 @@
   border: 3px solid var(--light-border);
 }
 
+.dark .download-button img {
+  border: none;
+}
+
+.light .download-button img {
+  border: none;
+}
 .dark .projcard video {
   border: 3px solid var(--dark-border);
 }
@@ -453,8 +489,39 @@ section#skills {
   z-index: 1;  
 }
 
+.download-button {
+  padding: 15px 15px;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 25px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.5s,border 1s,font-size 0.5s,transform 0.5s;
+  display: inline-block;
+  align-items: center;
+}
 
+.download-button img{
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
 
+.download-button a{
+  text-decoration: none;
+  transition: color 1s;
+   display: flex;
+  align-items: center;
+}
+
+.download-button:hover{
+  transform: scale(1.5);
+}
+
+.download-button img:hover{
+  transform: scale(1);
+}
 .projcard#hosting img {
   width: 100%;
   margin-bottom: 5%;
