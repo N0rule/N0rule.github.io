@@ -1,0 +1,297 @@
+:root {
+  --dark-bg: #404258;
+  --dark-fill: #474E68;
+  --dark-1:#50577A;
+  --dark-border: #6B728E;
+  --dark-hover: #6B728E;
+  --dark-text: #fff;
+
+
+  /* ALTERNATIVE LIGHT THEME */
+  /* --light-bg: #FEFCF3;
+  --light-fill: #F5EBE0;
+  --light-border: #DBA39A;
+  --light-hover: #DBA39A;
+  --light-text: #000; */
+  /* --light-1:F5EBE0 */
+  /* ---------------------- */
+
+
+  --light-bg: #7286D3;
+  --light-fill: #8EA7E9;
+  --light-1:#E5E0FF;
+  --light-border: #FFF2F2;
+  --light-hover: #FFF2F2;
+  --light-text: #000;
+  --progress-bar: aqua;
+
+}
+
+/* theme colors */
+.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.light {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+/* theme buttons */
+.dark #theme-button img {
+  border: 3px solid var(--dark-border);
+  content: url("https://cdn-icons-png.flaticon.com/512/1312/1312372.png");
+}
+
+.light #theme-button img {
+  border: 3px solid var(--light-border);
+  content: url("https://cdn-icons-png.flaticon.com/512/1312/1312348.png");
+}
+
+/* Profile Picture Colors */
+.dark #profile-picture {
+  border: 5px solid var(--dark-border);
+}
+
+.light #profile-picture {
+  border: 5px solid var(--light-border);
+}
+
+.dark.pphidden-text {
+  color: var(--dark-text);
+}
+
+.light .pphidden-text {
+  color: var(--light-text);
+}
+
+.dark.pphidden-text {
+  color: var(--dark-text);
+}
+
+.light .pphidden-text {
+  color: var(--light-text);
+}
+
+
+.light .download-button:hover {
+  background-color: var(--light-hover);
+  cursor: pointer;
+}
+
+.dark .download-button:hover {
+  background-color: var(--dark-hover);
+  cursor: pointer;
+}
+.light .download-button {
+  background-color: var(--light-fill);
+  border: 2px solid var(--light-border);
+  color: var(--light-text);
+}
+
+.dark .download-button {
+  background-color: var(--dark-fill);
+  border: 2px solid var(--dark-border);
+  color: var(--dark-text);
+}
+.dark .download-button a {
+  color: var(--dark-text);
+}
+
+.light .download-button a {
+  color: var(--light-text);
+}
+
+.dark .download-button img {
+  border: none;
+}
+
+.light .download-button img {
+  border: none;
+}
+
+
+/* resume colors */
+.dark section#resume {
+  background-color: var(--dark-fill);
+  border: 3px solid var(--dark-border);
+}
+
+.light section#resume {
+  background-color: var(--light-fill);
+  border: 3px solid var(--light-border);
+}
+
+.dark .profile-picture-container a {
+  color: var(--dark-text);
+}
+
+.light .profile-picture-container a {
+  color: var(--light-text);
+}
+/* theme colors end */
+
+/* GLOBAL */
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  display: grid;
+  grid-template-columns: auto 0px;
+  transition: color 1s,background-color 1s;
+}
+
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* THEME BUTTON */
+
+button#theme-button {
+  margin-top: 15px;
+  display: block;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  transition: transform 0.5s;
+}
+
+#theme-button:hover{
+  transform: scale(1.2);
+}
+
+#theme-button img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  transition: border 1s;
+}
+
+/* PROFILE PICTURE */
+
+
+#profile-picture {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s,background-color 1s,border 1s;
+  margin-bottom: -10px;
+}
+
+#profile-picture:hover {
+  transform: translateY(-20px);
+}
+
+.profile-picture-container {
+  position: relative;
+  text-align: center;
+  margin: auto;
+}
+
+.pphidden-text {
+  font-size: 30px;
+  opacity: 0;
+  transition: opacity .25s;
+  margin-bottom: 20px;
+}
+
+.profile-picture-container a{
+  text-decoration: none;
+}
+
+#profile-picture:hover+.pphidden-text {
+  opacity: 1;
+  animation: slide-text 1s;
+}
+
+
+/* RESUME */
+
+section {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  transition: background-color 1s,border 1s;
+}
+
+section#resume {
+  font-size: 18px;
+  line-height: 1.5;
+  border-radius: 25px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: left;
+}
+
+section#resume h2 {
+  text-align: center;
+  margin-bottom: 1.5%;
+
+}
+
+section#resume h3 {
+  text-align: center;
+  margin-bottom: 1.5%;
+  margin-top: 1.5%
+}
+
+ul#buttons{
+  text-align: center;  
+}
+
+section#resume a {
+  text-decoration: none;
+}
+
+.download-button {
+  padding: 15px 15px;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 25px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.5s,border 1s,font-size 0.5s,transform 0.5s;
+  display: inline-block;
+  align-items: center;
+  position: relative;
+  margin-right: 10px;
+  margin-left: 10px;    
+}
+
+.download-button img{
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;  
+}
+
+.download-button a{
+  text-decoration: none;
+  transition: color 1s;
+  display: flex;
+  align-items: center;
+}
+
+.download-button:hover{
+  z-index: 1;
+  transform: scale(1.5);
+
+}
+
+.download-button img:hover{
+  transform: scale(1);
+}

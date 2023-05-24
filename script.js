@@ -42,5 +42,8 @@ function getCookie(name) {
   }
 }
 // --------------------------------------------------------------------------
-
+// document.querySelector(".projcard img").addEventListener("click", function()
+// {
+//   this.style.transform = "scale(1.7)";
+// });
 
