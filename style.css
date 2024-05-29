@@ -31,6 +31,9 @@
   --fade: 80px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 /* theme colors */
 .dark {
   background-color: var(--dark-bg);
@@ -403,11 +406,33 @@ nav a {
   grid-template-columns: repeat(auto-fit, minmax(100px, 1hr));
   white-space: nowrap;
   transition: background-color 0.5s,font-size 0.5s,color 1s;
+  
 }
 
 nav a:hover {
   font-size: 25px;
 }
+
+@media (max-width: 860px) {
+  nav a {
+    font-size: 25px;
+    padding: 5px;
+  }
+
+  nav a:hover {
+    font-size: 35px;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav {
+    padding: 8px;
+  }
+}
+
+
 
 /* ABOUT ME */
 
@@ -453,19 +478,19 @@ section#skills {
 
 }
 
-.emi_bot_container {
+.projcard_сontainer {
   width: 100%;
   
 }
 
-.emi_bot_container img {
+.projcard_сontainer img {
   float: left;
   width: 50%;
   display: block;
   transition: background-color 1s,border 1s;
 }
 
-.emi_bot_container p {
+.projcard_сontainer p {
   float: right;
   width: 64%;
   display: block;
