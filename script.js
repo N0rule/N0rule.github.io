@@ -1,21 +1,23 @@
+
 document.addEventListener("DOMContentLoaded", function () {
-  var themeButton = document.getElementById("theme-button");
-  var body = document.getElementsByTagName("BODY")[0];
-  if (themeButton) {
-    themeButton.addEventListener("click", toggleTheme);
+  const themeButton = document.getElementById("theme-button");
+  const body = document.body;
+  
+  // Retrieve theme from cookies
+  const theme = getCookie('theme');
+  if (theme) {
+    body.className = theme;
   }
-  if (body) {
-    var theme = getCookie('theme');
-    if (theme) {
-      body.className = theme;
-    }
-  }
+
+  // Toggle theme event
+  themeButton?.addEventListener("click", toggleTheme);
 });
 
-// toggle between light and dark theme
+// Toggle between light and dark theme
 function toggleTheme() {
-  var body = document.getElementsByTagName("BODY")[0];
-  var theme = body.className;
+  const body = document.body;
+  const theme = body.className;
+
   if (theme === "light") {
     body.className = "dark";
     setCookie('theme', 'dark', 365);
@@ -25,25 +27,16 @@ function toggleTheme() {
   }
 }
 
-// set a cookie with the given name, value, and expiry date
+// Set a cookie with the given name, value, and expiry date
 function setCookie(name, value, expiryDays) {
-  var date = new Date();
+  const date = new Date();
   date.setTime(date.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
-  var expires = "expires=" + date.toUTCString();
-  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
 }
 
-// get the value of a cookie with the given name
+// Get the value of a cookie with the given name
 function getCookie(name) {
-  var value = "; " + document.cookie;
-  var parts = value.split("; " + name + "=");
-  if (parts.length === 2) {
-    return parts.pop().split(";").shift();
-  }
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  return parts.length === 2 ? parts.pop().split(";").shift() : null;
 }
-// --------------------------------------------------------------------------
-// document.querySelector(".projcard img").addEventListener("click", function()
-// {
-//   this.style.transform = "scale(1.7)";
-// });
-
