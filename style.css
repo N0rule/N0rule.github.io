@@ -320,10 +320,6 @@ button#theme-button {
   transform: scale(1.2);
 }
 
-
-
-
-
 #theme-button img {
   border-radius: 50%;
   width: 70px;
@@ -466,10 +462,7 @@ section#skills {
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   padding: 40px;
   margin-bottom: 40px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  transition: background-color 1s,border 1s;
+  transition: background-color 1s, border 1s;
 }
 
 .projcard p {
@@ -479,22 +472,24 @@ section#skills {
 }
 
 .projcard_сontainer {
-  width: 100%;
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s;
 }
 
 .projcard_сontainer img {
-  float: left;
-  width: 50%;
-  display: block;
-  transition: background-color 1s,border 1s;
+  max-width: 100%;
+  height: auto;
+  border-radius: 25px;
+  transition: background-color 1s, border 1s, transform 0.5s;
 }
 
 .projcard_сontainer p {
-  float: right;
-  width: 64%;
-  display: block;
-  text-align: left;
+  flex: 1;
+  min-width: 200px;
 }
 
 
@@ -517,34 +512,48 @@ section#skills {
   z-index: 1;
 }
 
+.download-buttons {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
 .download-button {
-  padding: 15px 15px;
+  flex: 1;
+  min-width: 150px;
+  max-width: 200px;
+  padding: 15px;
   margin: 5px;
   text-decoration: none;
   font-size: 18px;
   border-radius: 25px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.5s,border 1s,font-size 0.5s,transform 0.5s;
+  transition: background-color 0.5s, border 1s, font-size 0.5s, transform 0.5s;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  position: relative;
-  display: inline-block;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
-.download-button img{
+.download-button img {
   border-radius: 50%;
   height: 50px;
   width: 50px;
-  margin-right: 10px;  
-  box-shadow: 0px 0px 0px;
+  margin-right: 10px;
+  box-shadow: none;
+  flex-shrink: 0;
 }
 
-.download-button a{
+.download-button a {
   text-decoration: none;
   transition: color 1s;
-   display: flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .download-button:hover{
@@ -561,6 +570,19 @@ section#skills {
   margin-bottom: 5%;
 
 }
+
+@media (max-width: 768px) {
+  .projcard_сontainer {
+    flex-direction: column;
+  }
+
+  .projcard_сontainer img {
+    min-width: 45%;
+  }
+
+
+}
+
 
 
 .projcard video {
