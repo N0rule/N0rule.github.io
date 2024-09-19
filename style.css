@@ -1,11 +1,10 @@
 :root {
   --dark-bg: #404258;
-  --dark-fill: #474E68;
-  --dark-1:#50577A;
-  --dark-border: #6B728E;
-  --dark-hover: #6B728E;
+  --dark-fill: #474e68;
+  --dark-1: #50577a;
+  --dark-border: #6b728e;
+  --dark-hover: #6b728e;
   --dark-text: #fff;
-
 
   /* ALTERNATIVE LIGHT THEME */
   /* --light-bg: #FEFCF3;
@@ -16,12 +15,11 @@
   /* --light-1:F5EBE0 */
   /* ---------------------- */
 
-
-  --light-bg: #7286D3;
-  --light-fill: #8EA7E9;
-  --light-1:#E5E0FF;
-  --light-border: #FFF2F2;
-  --light-hover: #FFF2F2;
+  --light-bg: #7286d3;
+  --light-fill: #8ea7e9;
+  --light-1: #e5e0ff;
+  --light-border: #fff2f2;
+  --light-hover: #fff2f2;
   --light-text: #000;
 
   --progress-bar: aqua;
@@ -104,14 +102,12 @@ html {
   color: var(--dark-text);
   background-color: var(--dark-fill);
   border: 3px solid var(--dark-border);
-
 }
 
 .light .top {
   color: var(--light-text);
   background-color: var(--light-fill);
   border: 3px solid var(--light-border);
-
 }
 
 .dark .top::before {
@@ -185,8 +181,6 @@ html {
   color: var(--light-text);
 }
 
-
-
 .dark .projcard img {
   border: 3px solid var(--dark-border);
 }
@@ -218,7 +212,6 @@ html {
   border: 3px solid var(--light-border);
 }
 
-
 /* SKILLS */
 
 .dark .skills-container {
@@ -248,7 +241,6 @@ html {
 .light .progress-bar-front {
   background-color: var(--light-bg);
 }
-
 
 /* Social Media Card colors */
 .dark .mcard {
@@ -281,23 +273,19 @@ html {
 
 /* GLOBAL */
 
-
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   display: grid;
   grid-template-columns: auto 0px;
-  transition: color 1s,background-color 1s;
+  transition: color 1s, background-color 1s;
 }
-
 
 .container {
   max-width: 960px;
@@ -316,8 +304,9 @@ button#theme-button {
   transition: transform 0.5s;
 }
 
-#theme-button:hover{
+#theme-button:hover {
   transform: scale(1.2);
+  
 }
 
 #theme-button img {
@@ -330,13 +319,12 @@ button#theme-button {
 
 /* PROFILE PICTURE */
 
-
 #profile-picture {
   border-radius: 50%;
   width: 200px;
   height: 200px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s,background-color 1s,border 1s;
+  transition: transform 0.5s, background-color 1s, border 1s;
   margin-bottom: -10px;
 }
 
@@ -353,17 +341,16 @@ button#theme-button {
 .pphidden-text {
   font-size: 30px;
   opacity: 0;
-  transition: opacity .25s;
+  transition: opacity 0.25s;
   margin-bottom: 20px;
 }
 
-#profile-picture:hover+.pphidden-text {
+#profile-picture:hover + .pphidden-text {
   opacity: 1;
   animation: slide-text 1s;
 }
 
 /* NAVIGATION BAR */
-
 
 nav {
   margin: auto 15%;
@@ -373,9 +360,8 @@ nav {
   padding: 15px;
   display: flex;
   justify-content: center;
-  transition: background-color 1s,border 1s;
+  transition: background-color 1s, border 1s;
 }
-
 
 nav ul {
   list-style: none;
@@ -401,8 +387,7 @@ nav a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1hr));
   white-space: nowrap;
-  transition: background-color 0.5s,font-size 0.5s,color 1s;
-  
+  transition: background-color 0.5s, font-size 0.5s, color 1s;
 }
 
 nav a:hover {
@@ -428,14 +413,12 @@ nav a:hover {
   }
 }
 
-
-
 /* ABOUT ME */
 
 section {
   margin-top: 5%;
   margin-bottom: 5%;
-  transition: background-color 1s,border 1s;
+  transition: background-color 1s, border 1s;
 }
 
 section#about-me {
@@ -448,7 +431,6 @@ section#about-me {
 }
 
 /* PROJECTS */
-
 
 section#projects,
 section#skills {
@@ -468,7 +450,6 @@ section#skills {
 .projcard p {
   margin-bottom: 25px;
   text-align: left;
-
 }
 
 .projcard_сontainer {
@@ -492,8 +473,6 @@ section#skills {
   min-width: 200px;
 }
 
-
-
 #emi_bot {
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -503,11 +482,11 @@ section#skills {
   width: 30%;
   border-radius: 25px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  transition: background-color 1s,border 1s,transform 0.5s;
-    
+  transition: background-color 1s, border 1s, transform 0.5s;
 }
 
-.projcard img:hover,video:hover {
+.projcard img:hover,
+video:hover {
   transform: scale(1.7);
   z-index: 1;
 }
@@ -554,21 +533,24 @@ section#skills {
   justify-content: center;
   width: 100%;
   height: 100%;
+  position: absolute; /* Add this */
+  top: 0; /* Add this */
+  left: 0; /* Add this */
+  z-index: 1; /* Add this */
 }
 
-.download-button:hover{
-   z-index: 1;
+.download-button:hover {
+  z-index: 1;
   transform: scale(1.5);
 }
 
-.download-button img:hover{
+.download-button img:hover {
   transform: scale(1);
 }
 
 .projcard#hosting img {
   width: 100%;
   margin-bottom: 5%;
-
 }
 
 @media (max-width: 768px) {
@@ -579,11 +561,7 @@ section#skills {
   .projcard_сontainer img {
     min-width: 45%;
   }
-
-
 }
-
-
 
 .projcard video {
   width: 100%;
@@ -592,7 +570,6 @@ section#skills {
   transition: transform 0.5s;
 }
 
-
 #model-viewer {
   height: 1px;
   width: 1px;
@@ -600,11 +577,10 @@ section#skills {
   left: 100px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   display: block;
-  transition: background-color 1s,border 1s;
+  transition: background-color 1s, border 1s;
 }
 
 /* SKILLS */
-
 
 .skill {
   margin-bottom: 10px;
@@ -621,8 +597,7 @@ section#skills {
   border-radius: 25px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   padding: 40px;
-  transition: background-color 1s,border 1s;
-
+  transition: background-color 1s, border 1s;
 }
 
 .progress-bar-back {
@@ -631,7 +606,7 @@ section#skills {
   position: relative;
   border-radius: 25px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  transition: background-color 1s,border 1s;
+  transition: background-color 1s, border 1s;
 }
 
 .progress-bar-front {
@@ -640,11 +615,10 @@ section#skills {
   position: absolute;
   top: 0;
   left: 0;
-  transition: background-color 1s,border 1s;
+  transition: background-color 1s, border 1s;
 }
 
 /* SOCIAL MEDIA */
-
 
 section#social-media {
   text-align: center;
@@ -664,7 +638,6 @@ section p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  
 }
 
 .mcard {
@@ -674,7 +647,7 @@ section p {
   text-align: center;
   padding: 20px;
   margin-bottom: 20px;
-  transition: background-color 1s,border 1s,scale 1s;
+  transition: background-color 1s, border 1s, scale 1s;
 }
 
 .mcard img {
@@ -690,7 +663,6 @@ section p {
 
 .mcard h3 {
   margin: 0 0 10px 0;
-  
 }
 
 .mcard a {
@@ -701,18 +673,19 @@ section p {
 
 /* TOP BUTTON */
 
-
 .container-top {
   display: flex;
   align-items: flex-end;
   width: 60px;
   justify-self: end;
   justify-content: flex-end;
-  -webkit-mask: linear-gradient(#0000 calc(100vh + var(--offset)), #000 calc(100vh + var(--offset) + var(--fade)));
+  -webkit-mask: linear-gradient(
+    #0000 calc(100vh + var(--offset)),
+    #000 calc(100vh + var(--offset) + var(--fade))
+  );
 }
 
 .top {
-
   position: sticky;
   bottom: 20px;
   margin-right: 10px;
