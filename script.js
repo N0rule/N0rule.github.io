@@ -1,41 +1,27 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const themeButton = document.getElementById("theme-button");
   const body = document.body;
 
-  // Retrieve theme from cookies
-  const theme = getCookie("theme");
-  if (theme) {
-    body.className = theme;
+  const savedTheme = getCookie("theme");
+  if (savedTheme) {
+    body.className = savedTheme;
   }
 
-  // Toggle theme event
-  themeButton?.addEventListener("click", toggleTheme);
+  themeButton?.addEventListener("click", () => {
+    const currentTheme = body.className;
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    body.className = newTheme;
+    setCookie("theme", newTheme, 365);
+  });
 });
 
-// Toggle between light and dark theme
-function toggleTheme() {
-  const body = document.body;
-  const theme = body.className;
-
-  if (theme === "light") {
-    body.className = "dark";
-    setCookie("theme", "dark", 365);
-  } else {
-    body.className = "light";
-    setCookie("theme", "light", 365);
-  }
+// Set a cookie
+function setCookie(name, value, days) {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = `${name}=${value}; expires=${expires}; path=/`;
 }
 
-// Set a cookie with the given name, value, and expiry date
-function setCookie(name, value, expiryDays) {
-  const date = new Date();
-  date.setTime(date.getTime() + expiryDays * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
-}
-
-// Get the value of a cookie with the given name
+// Get a cookie
 function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  return parts.length === 2 ? parts.pop().split(";").shift() : null;
+  return document.cookie.split("; ").find(row => row.startsWith(name + "="))?.split("=")[1];
 }

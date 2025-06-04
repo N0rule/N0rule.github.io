@@ -484,8 +484,7 @@ section#skills {
   transition: background-color 1s, border 1s, transform 0.5s;
 }
 
-.projcard img:hover,
-video:hover {
+.projcard img:hover,video:hover {
   transform: scale(1.7);
   z-index: 1;
 }
@@ -565,15 +564,34 @@ video:hover {
   transition: transform 0.5s;
 }
 
-#model-viewer {
-  height: 1px;
-  width: 1px;
-  border-radius: 25px;
-  left: 100px;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  display: block;
-  transition: background-color 1s, border 1s;
+/* PROJECTS - specifically 3D Model Viewer styling */
+
+/* Your existing .projcard video styling can be removed or repurposed if needed */
+/* .projcard video { ... } */
+
+/* Adjust styling for the model-viewer element */
+.dark #model-viewer {
+  border: 3px solid var(--dark-border);
+  background-color: var(--dark-1); /* Optional: themed background for the element */
 }
+
+.light #model-viewer {
+  border: 3px solid var(--light-border);
+  background-color: var(--light-1); /* Optional: themed background for the element */
+}
+
+#model-viewer {
+  width: 100%; /* Make it take the full width of its container */
+  height: 450px; /* Set a specific height for the viewer. Adjust as you like (e.g., 400px, 500px) */
+  border-radius: 25px; /* Keep your border-radius */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Keep your box-shadow */
+  display: block; /* model-viewer is a custom element, display: block is good practice */
+  position: relative;
+  transition: background-color 1s, border 1s; /* Keep your transitions */
+  /* background-color: transparent; /* Or a specific color if not using themed BGs above */
+}
+
+
 
 /* SKILLS */
 
