@@ -145,6 +145,8 @@ const modelViewerContainer = document.getElementById('modelViewerContainer');
 const modelControls = document.getElementById('modelControls');
 const fullscreenIcon = document.querySelector('.fullscreen-icon');
 const exitFullscreenIcon = document.querySelector('.exit-fullscreen-icon');
+const modelInstructions = document.getElementById('modelInstructions');
+const closeInstructionsBtn = document.getElementById('closeInstructionsBtn');
 
 // Load model on button click
 loadModelBtn.addEventListener('click', () => {
@@ -180,6 +182,17 @@ modelViewer.addEventListener('load', () => {
     if (progressBar) {
         progressBar.style.display = 'none';
     }
+    
+    // Show instructions after model loads
+    if (!localStorage.getItem('modelInstructionsShown')) {
+        modelInstructions.classList.remove('hidden');
+    }
+});
+
+// Close instructions
+closeInstructionsBtn.addEventListener('click', () => {
+    modelInstructions.classList.add('hidden');
+    localStorage.setItem('modelInstructionsShown', 'true');
 });
 
 // Previous model

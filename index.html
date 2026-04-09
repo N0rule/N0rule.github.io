@@ -1,30 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic Page Needs -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N0rule - Developer & 3D Artist</title>
-    <meta name="description" content="Vladimir 'N0rule' Dvoruk - IT enthusiast, developer, and 3D artist specializing in game development, Discord bots, and Blender modeling.">
+    <title>N0rule Weebpage🫠</title>
+    <meta name="description" content="N0rule - IT enthusiast, developer, and 3D artist specializing in game development, Discord bots, and Blender modeling.">
     <meta name="author" content="N0rule">
-    
+    <meta name="keywords" content="N0rule, portfolio, projects, skills, web development, game development, Blender, Discord bots">
+
     <!-- Favicons -->
-    <link rel="icon" href="./images/favicons/favicon.ico" type="image/x-icon">
-    
+    <link rel="icon" href="https://n0rule.is-a.dev/images/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://n0rule.is-a.dev/images/favicons/favicon_apple.png">
+
+    <!-- SEO / Canonical URL -->
+    <link rel="canonical" href="https://n0rule.is-a.dev/">
+
     <!-- Open Graph -->
-    <meta property="og:title" content="N0rule - Developer & 3D Artist">
+    <meta property="og:title" content="N0rule Weebpage🫠">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Vladimir 'N0rule' Dvoruk - IT enthusiast, developer, and 3D artist">
-    <meta property="og:image" content="./images/profile_picture.webp">
-    
-    <link rel="stylesheet" href="style.css">
+    <meta property="og:url" content="https://n0rule.is-a.dev/">
+    <meta property="og:description" content="Everything you need to know about N0rule">
+    <meta property="og:image" content="https://raw.githubusercontent.com/N0rule/N0rule.github.io/2bcb23ec2e1714b4ed363a41bfe066cbfab5d5ac/images/profile_picture.png">
+    <meta property="og:site_name" content="N0rule Weebpage">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Discord accent color -->
+    <meta name="theme-color" content="#5865F2">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://n0rule.is-a.dev/">
+    <meta name="twitter:title" content="N0rule Weebpage🫠">
+    <meta name="twitter:description" content="Everything you need to know about N0rule">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/N0rule/N0rule.github.io/2bcb23ec2e1714b4ed363a41bfe066cbfab5d5ac/images/profile_picture.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Theme Script (prevent flicker) -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9B4NME457B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-9B4NME457B');
+    </script>
+
+    <!-- Scripts -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-    <script src="script.js" defer></script>
+    <script src="./script.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="#" class="nav-logo">N0rule</a>
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
@@ -110,6 +148,7 @@
                         <h3>VRChat Heart Rate Monitor</h3>
                         <p>TizenOS Watch integration that transmits real-time heart rate data via OSC to VRChat for enhanced immersion.</p>
                         <div class="project-tags">
+                            <span class="tag">Node.js</span>
                             <span class="tag">TizenOS</span>
                             <span class="tag">OSC</span>
                             <span class="tag">VRChat</span>
@@ -153,8 +192,8 @@
                         <h3>Telegram Wishlist Bot</h3>
                         <p>Telegram bot for managing wishlists and gift ideas with friends and family.</p>
                         <div class="project-tags">
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Telegram Bot API</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">telegraf.js</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/N0rule/telegram-wishlist-bot" class="project-link">
@@ -172,7 +211,7 @@
                     </div>
                     <div class="project-content">
                         <h3>N0rule Deck</h3>
-                        <p>Custom card deck for the N0rule gaming community.</p>
+                        <p>Wireless Deck similar to the popular Stream Deck, designed for custom keybinds and macros.</p>
                         <div class="project-tags">
                             <span class="tag">ESP32</span>
                             <span class="tag">Arduino</span>
@@ -217,6 +256,25 @@
                             <div class="progress-text" id="progressText">Loading... 0%</div>
                         </div>
                     </model-viewer>
+                    
+                    <div class="model-instructions hidden" id="modelInstructions">
+                        <div class="instruction-content">
+                            <h4>How to Navigate</h4>
+                            <div class="instruction-item">
+                                <span class="instruction-icon">🖱️</span>
+                                <span>Left click & drag to rotate</span>
+                            </div>
+                            <div class="instruction-item">
+                                <span class="instruction-icon">✋</span>
+                                <span>Right click & drag to pan</span>
+                            </div>
+                            <div class="instruction-item">
+                                <span class="instruction-icon">🔍</span>
+                                <span>Scroll to zoom</span>
+                            </div>
+                            <button class="close-instructions-btn" id="closeInstructionsBtn">Got it!</button>
+                        </div>
+                    </div>
                     
                     <div class="model-controls hidden" id="modelControls">
                         <button class="model-nav-btn" id="prevModelBtn" disabled>
