@@ -11,6 +11,9 @@
     --border: #ccd0da;
     --shadow: rgba(76, 79, 105, 0.1);
     --shadow-lg: rgba(76, 79, 105, 0.2);
+    --skill-beginner: #d20f39;
+    --skill-intermediate: #df8e1d;
+    --skill-advanced: #40a02b;
 }
 
 /* Catppuccin Mocha (Dark Theme) */
@@ -26,6 +29,9 @@
     --border: #45475a;
     --shadow: rgba(0, 0, 0, 0.4);
     --shadow-lg: rgba(0, 0, 0, 0.6);
+    --skill-beginner: #f38ba8;
+    --skill-intermediate: #f9e2af;
+    --skill-advanced: #a6e3a1;
 }
 
 * {
@@ -724,6 +730,18 @@ model-viewer.hidden {
     font-weight: 600;
     color: var(--accent);
     margin-bottom: 1rem;
+}
+
+.skill-level-beginner {
+    color: var(--skill-beginner);
+}
+
+.skill-level-intermediate {
+    color: var(--skill-intermediate);
+}
+
+.skill-level-advanced {
+    color: var(--skill-advanced);
 }
 
 .skill-description {
