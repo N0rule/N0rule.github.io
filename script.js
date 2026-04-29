@@ -126,13 +126,35 @@ document.querySelectorAll('.project-card').forEach(card => {
 })();
 
 // 3D Model Viewer Controls
-const models = [
-    './models/N0ruleOptimized.glb'
-    // Add more model paths here when you have them
-];
-
+let models = [];
 let currentModelIndex = 0;
 let modelLoaded = false;
+
+// Fetch all .glb models from models/ directory
+async function loadModelList() {
+    try {
+        const response = await fetch('./models/');
+        const text = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const links = doc.querySelectorAll('a');
+        
+        models = Array.from(links)
+            .map(link => link.getAttribute('href'))
+            .filter(href => href && href.endsWith('.glb'));
+        
+        if (models.length === 0) {
+            console.error('No .glb models found');
+        }
+    } catch (error) {
+        console.error('Failed to load model list:', error);
+        // Fallback to hardcoded list
+        models = ['./models/N0ruleOptimized.glb', './models/Avocado.glb', './models/BarramundiFish.glb'];
+    }
+}
+
+// Initialize model list on page load
+loadModelList();
 
 const loadModelBtn = document.getElementById('loadModelBtn');
 const modelPlaceholder = document.getElementById('modelPlaceholder');
@@ -150,6 +172,17 @@ const closeInstructionsBtn = document.getElementById('closeInstructionsBtn');
 
 // Load model on button click
 loadModelBtn.addEventListener('click', () => {
+    const progressBar = document.getElementById('progressBar');
+    const progressBarFill = document.getElementById('progressBarFill');
+    const progressText = document.getElementById('progressText');
+    
+    // Show and reset progress bar
+    if (progressBar) {
+        progressBar.classList.remove('hidden');
+        progressBarFill.style.width = '0%';
+        progressText.textContent = 'Loading... 0%';
+    }
+    
     modelViewer.src = models[currentModelIndex];
     modelViewer.setAttribute('auto-rotate', '');
     modelPlaceholder.style.display = 'none';
@@ -178,10 +211,21 @@ modelViewer.addEventListener('progress', (event) => {
 
 // Hide progress bar when model is loaded
 modelViewer.addEventListener('load', () => {
-    const progressBar = document.querySelector('.progress-bar');
-    if (progressBar) {
-        progressBar.style.display = 'none';
+    const progressBar = document.getElementById('progressBar');
+    
+    // Clear progress timeout if model loaded fast
+    if (modelViewer.dataset.progressTimeout) {
+        clearTimeout(parseInt(modelViewer.dataset.progressTimeout));
+        delete modelViewer.dataset.progressTimeout;
     }
+    
+    if (progressBar) {
+        progressBar.classList.add('hidden');
+    }
+    
+    // Fade in model viewer
+    modelViewer.style.transition = 'opacity 0.3s ease';
+    modelViewer.style.opacity = '1';
     
     // Show instructions after model loads
     if (!localStorage.getItem('modelInstructionsShown')) {
@@ -199,8 +243,7 @@ closeInstructionsBtn.addEventListener('click', () => {
 prevModelBtn.addEventListener('click', () => {
     if (models.length > 1) {
         currentModelIndex = (currentModelIndex - 1 + models.length) % models.length;
-        modelViewer.src = models[currentModelIndex];
-        updateModelCounter();
+        loadModel(currentModelIndex);
     }
 });
 
@@ -208,10 +251,36 @@ prevModelBtn.addEventListener('click', () => {
 nextModelBtn.addEventListener('click', () => {
     if (models.length > 1) {
         currentModelIndex = (currentModelIndex + 1) % models.length;
-        modelViewer.src = models[currentModelIndex];
-        updateModelCounter();
+        loadModel(currentModelIndex);
     }
 });
+
+// Load model helper function
+function loadModel(index) {
+    const progressBar = document.getElementById('progressBar');
+    const progressBarFill = document.getElementById('progressBarFill');
+    const progressText = document.getElementById('progressText');
+    
+    // Fade out model viewer during load
+    modelViewer.style.transition = 'opacity 0.3s ease';
+    modelViewer.style.opacity = '0';
+    
+    // Show progress bar only after delay (if model takes time to load)
+    let progressTimeout = setTimeout(() => {
+        if (progressBar) {
+            progressBar.classList.remove('hidden');
+            progressBarFill.style.width = '0%';
+            progressText.textContent = 'Loading... 0%';
+        }
+    }, 25);
+    
+    // Store timeout ID to clear it if model loads fast
+    modelViewer.dataset.progressTimeout = progressTimeout;
+    
+    // Load new model
+    modelViewer.src = models[index];
+    updateModelCounter();
+}
 
 // Fullscreen toggle
 fullscreenBtn.addEventListener('click', () => {

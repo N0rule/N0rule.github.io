@@ -278,13 +278,14 @@
                         camera-controls
                         shadow-intensity="1"
                         exposure="1">
-                        <div class="progress-bar" slot="progress-bar">
-                            <div class="progress-bar-container">
-                                <div class="progress-bar-fill" id="progressBarFill"></div>
-                            </div>
-                            <div class="progress-text" id="progressText">Loading... 0%</div>
-                        </div>
                     </model-viewer>
+                    
+                    <div class="progress-bar hidden" id="progressBar">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" id="progressBarFill"></div>
+                        </div>
+                        <div class="progress-text" id="progressText">Loading... 0%</div>
+                    </div>
                     
                     <div class="model-instructions hidden" id="modelInstructions">
                         <div class="instruction-content">

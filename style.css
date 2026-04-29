@@ -349,6 +349,10 @@ model-viewer.hidden {
     display: none;
 }
 
+.progress-bar.hidden {
+    display: none !important;
+}
+
 .progress-bar {
     position: absolute;
     top: 50%;
@@ -356,6 +360,11 @@ model-viewer.hidden {
     transform: translate(-50%, -50%);
     width: 300px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    pointer-events: none;
 }
 
 .progress-bar-container {
