@@ -133,23 +133,21 @@ let modelLoaded = false;
 // Fetch all .glb models from models/ directory
 async function loadModelList() {
     try {
-        const response = await fetch('./models/');
-        const text = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
-        const links = doc.querySelectorAll('a');
+        const response = await fetch('./models/models.json');
+        if (!response.ok) throw new Error('Failed to fetch models.json');
         
-        models = Array.from(links)
-            .map(link => link.getAttribute('href'))
-            .filter(href => href && href.endsWith('.glb'));
+        const modelFiles = await response.json();
+        models = modelFiles.map(filename => `./models/${filename}`);
+        
+        console.log(`Loaded ${models.length} models:`, models);
         
         if (models.length === 0) {
-            console.error('No .glb models found');
+            console.error('No models listed in models.json');
         }
     } catch (error) {
         console.error('Failed to load model list:', error);
-        // Fallback to hardcoded list
-        models = ['./models/N0ruleOptimized.glb', './models/Avocado.glb', './models/BarramundiFish.glb'];
+        // Fallback to at least one model
+        models = ['./models/N0ruleOptimized.glb'];
     }
 }
 
