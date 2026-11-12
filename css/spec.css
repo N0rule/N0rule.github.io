@@ -1,6 +1,6 @@
 /* The /spec page. The cards reuse the site's own card classes (skill-card,
-   skill-top, skill-level, project-tags), so only the header layout and the
-   storage rows live here. */
+   skill-top, skill-level, project-tags), so only the header layout, the
+   oversized brand glyphs, and the storage rows live here. */
 
 /* The site link sits at the exact center of the page; the theme toggle is
    parked at the right edge, outside the pill. */
@@ -11,8 +11,14 @@
   width: 100%;
   padding-inline: 16px;
 }
+/* main.css caps .nav-inner at calc(100% - 32px) for the flex header on
+   index. Inside this grid the percentage resolves against the pill's own
+   track, clamping it 32px short of its content and left-aligning it, so
+   the cap is lifted and the pill centers in its track. */
 .spec-header .nav-inner {
   grid-column: 2;
+  justify-self: center;
+  max-width: none;
 }
 .spec-header .nav-actions {
   grid-column: 3;
@@ -22,11 +28,29 @@
   pointer-events: auto;
 }
 
-/* Brand glyphs ride where skill icons do, at the icon footprint. */
+/* Brand glyphs ride where skill icons do, at three times the usual
+   footprint. The fixed 50px .skill-icon box would clip a 132px glyph, so
+   the box grows with it and the gap below is retuned. */
+.skill-icon.spec-icon {
+  height: auto;
+  margin-bottom: 22px;
+}
 .spec-icon .icon {
-  width: 44px;
-  height: 44px;
+  width: 132px;
+  height: 132px;
   color: var(--accent);
+}
+@media (max-width: 500px) {
+  .spec-icon .icon {
+    width: 96px;
+    height: 96px;
+  }
+}
+@media (max-width: 360px) {
+  .spec-icon .icon {
+    width: 72px;
+    height: 72px;
+  }
 }
 
 /* Number pills center under the card copy. */
@@ -51,19 +75,24 @@
   row-gap: 3px;
 }
 .spec-drives li + li {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--subtle-border);
   padding-top: 12px;
 }
+/* Line-heights are pinned so a baseline-aligned pair shares one line;
+   the body's 1.75 otherwise pushes the pill below the name. */
 .drive-name {
   font-size: 14px;
   font-weight: 800;
+  line-height: 1.3;
+  text-wrap: balance;
 }
 .drive-pill {
   font-size: 12px;
   font-weight: 600;
+  line-height: 1.3;
   color: var(--secondary);
   background: var(--raised);
-  padding: 3px 10px;
+  padding: 4px 10px;
   border-radius: 99px;
   white-space: nowrap;
 }

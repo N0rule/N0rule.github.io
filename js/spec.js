@@ -1,14 +1,16 @@
 import { renderIcons } from "./icons.js";
 import { initCards } from "./cards.js";
 import { initNav } from "./nav.js";
+import { initHoverUnstick } from "./hover-unstick.js";
 
 // Startup for the spec sheet: the shared chrome (icons, theme toggle, sticky
-// header, card tilt). The portfolio-only modules (gallery, i18n, projects)
-// are not part of this page.
+// header, card tilt, hover unstick). The portfolio-only modules (gallery,
+// i18n, projects) are not part of this page.
 
 renderIcons();
 initCards();
 initNav();
+initHoverUnstick();
 
 const themeToggle = document.querySelector("#theme-toggle");
 
