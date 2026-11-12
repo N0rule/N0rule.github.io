@@ -21,12 +21,9 @@ const iconNames = {
   reset: "restart_alt",
   up: "arrow_upward",
   brightness: "brightness_6",
-  gpu: "bolt",
-  ram: "view_module",
+  chip: "memory",
   board: "developer_board",
   storage: "storage",
-  monitor: "desktop_windows",
-  computer: "computer",
 };
 
 const brandIcons = {
@@ -36,6 +33,11 @@ const brandIcons = {
   "Twitter / X": "x",
   Instagram: "instagram",
   Steam: "steam",
+  AMD: "amd",
+  NVIDIA: "nvidia",
+  Toshiba: "toshiba",
+  Samsung: "samsung",
+  Windows: "windows",
 };
 
 export function renderIcon(name) {

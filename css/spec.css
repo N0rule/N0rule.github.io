@@ -1,52 +1,31 @@
-/* Styles for the unlinked PC spec sheet (/spec). Extends main.css. */
+/* Styles for the /spec page. The spec cards borrow the project-card classes
+   from main.css (surface, radius, hover tint, tilt, glare, the body layout),
+   so only the photo-less parts live here. */
 
-.spec-grid {
+/* The pill centers on this page: one link and the theme toggle. */
+.site-header .nav-inner {
+  margin-inline: auto;
+}
+
+/* A project card's picture slot, redrawn for a parts list: a raised strip
+   carrying the part's brand glyph (AMD, NVIDIA, Windows, ...) or a plain
+   icon when the brand is not on the icon CDN. */
+.spec-visual {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  place-items: center;
+  height: 128px;
+  background: var(--raised);
 }
 
-/* Same card language as .skill-card / .project-card, tuned for spec rows. */
-.spec-card {
-  display: flex;
-  flex-direction: column;
-  padding: 26px 24px;
-  border: 1px solid var(--subtle-border);
-  border-radius: 28px;
-  background: var(--surface);
-  text-align: center;
+.spec-visual .icon {
+  width: 46px;
+  height: 46px;
+  color: var(--accent);
 }
 
-.spec-card .project-category {
-  justify-content: center;
-}
-
-.spec-card h3 {
-  margin-top: 12px;
-  font-size: 22px;
-  line-height: 1.3;
-}
-
-.spec-card h3 small {
-  display: block;
-  margin-top: 4px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--secondary);
-}
-
-.spec-detail-tags {
-  flex: 1;
-}
-
-@media (max-width: 900px) {
-  .spec-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 620px) {
-  .spec-grid {
-    grid-template-columns: 1fr;
-  }
+/* The number pills ride at the card's foot, so the rows line up even when
+   the descriptions differ in length. */
+.spec-card .project-tags {
+  margin-top: auto;
+  padding-top: 18px;
 }

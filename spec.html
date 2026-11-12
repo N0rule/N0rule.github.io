@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <meta name="description" content="N0rule's PC — full spec sheet." />
+    <meta name="description" content="N0rule's PC specs, shared by link." />
+    <meta name="theme-color" content="#1e1e2e" />
     <meta property="og:title" content="N0rule's PC" />
     <meta property="og:description" content="Full spec sheet." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://n0rule.is-a.dev/spec" />
     <meta name="twitter:card" content="summary" />
-    <meta name="theme-color" content="#1e1e2e" />
     <link rel="icon" href="./images/favicons/favicon.ico" />
     <link rel="apple-touch-icon" href="./images/favicons/favicon_apple.png" />
     <link rel="canonical" href="https://n0rule.is-a.dev/spec" />
-    <title>N0rule's PC — Specs</title>
+    <title>N0rule's PC Specs</title>
     <script>
       try {
         document.documentElement.dataset.theme =
@@ -38,8 +38,8 @@
       <div class="container nav-inner">
         <nav id="navigation" aria-label="Main navigation">
           <a href="/"
-            ><span data-icon="user" aria-hidden="true"></span
-            ><span>n0rule.is-a.dev</span></a
+            ><span data-icon="web" aria-hidden="true"></span
+            ><span>N0rule.is-a.dev</span></a
           >
         </nav>
         <div class="nav-actions">
@@ -65,20 +65,11 @@
     <main id="main" tabindex="-1">
       <section id="home" class="hero container" aria-label="Introduction">
         <div class="hero-copy">
-          <h1><span>My PC</span><span class="hello-wave" aria-hidden="true">🖥️</span></h1>
+          <h1
+            ><span>My PC</span
+            ><span class="hello-wave" aria-hidden="true">🖥️</span></h1
+          >
           <p class="hero-role"><span>Full spec sheet</span></p>
-          <p class="hero-description">
-            <span
-              >The machine I build, game, and create on. Shared by link — if
-              you're reading this, you probably asked for it.</span
-            >
-          </p>
-          <div class="hero-buttons">
-            <a class="button secondary" href="/"
-              ><span data-icon="external" aria-hidden="true"></span
-              ><span>Back to the main site</span></a
-            >
-          </div>
         </div>
       </section>
       <section id="specs" class="section container specs-section">
@@ -90,166 +81,144 @@
             </h2>
           </div>
         </div>
-        <div class="spec-grid">
-          <div class="spec-card">
-            <span class="project-category"
-              ><span data-icon="cpu" aria-hidden="true"></span
-              ><span>Processor</span></span
-            >
-            <h3>
-              AMD Ryzen 5 2600
-              <small>6 cores · 12 threads</small>
-            </h3>
-            <div
-              class="project-tags spec-detail-tags"
-              role="list"
-              aria-label="Processor details"
-            >
-              <span role="listitem">3.4 GHz base</span>
-              <span role="listitem">3.9 GHz boost</span>
-              <span role="listitem">65 W TDP</span>
+        <div id="spec-grid" class="project-grid">
+          <article class="project-card spec-card">
+            <div class="spec-visual" aria-hidden="true">
+              <span data-icon="AMD"></span>
             </div>
-          </div>
-          <div class="spec-card">
-            <span class="project-category"
-              ><span data-icon="gpu" aria-hidden="true"></span
-              ><span>Graphics</span></span
-            >
-            <h3>
-              NVIDIA GeForce
-              <small>GTX 1080 Ti</small>
-            </h3>
-            <div
-              class="project-tags spec-detail-tags"
-              role="list"
-              aria-label="Graphics details"
-            >
-              <span role="listitem">11 GB GDDR5X</span>
-              <span role="listitem">Pascal GP102</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Processor</span>
+              </div>
+              <h3>Ryzen 5 2600</h3>
+              <p>
+                6 cores and 12 threads, from a 3.4 GHz base up to a 3.9 GHz
+                boost.
+              </p>
+              <div class="project-tags">
+                <span>Socket AM4</span><span>Zen+</span><span>65 W TDP</span>
+              </div>
             </div>
-          </div>
-          <div class="spec-card">
-            <span class="project-category"
-              ><span data-icon="ram" aria-hidden="true"></span
-              ><span>Memory</span></span
-            >
-            <h3>
-              16 GB DDR4
-              <small>2 × 8 GB · 3200 MHz</small>
-            </h3>
-            <div
-              class="project-tags spec-detail-tags"
-              role="list"
-              aria-label="Memory details"
-            >
-              <span role="listitem">Crucial 8 GB</span>
-              <span role="listitem">Crucial Ballistix 8 GB</span>
+          </article>
+          <article class="project-card spec-card">
+            <div class="spec-visual" aria-hidden="true">
+              <span data-icon="NVIDIA"></span>
             </div>
-          </div>
-          <div class="spec-card">
-            <span class="project-category"
-              ><span data-icon="board" aria-hidden="true"></span
-              ><span>Motherboard</span></span
-            >
-            <h3>
-              BIOSTAR
-              <small>A320MD PRO</small>
-            </h3>
-            <div
-              class="project-tags spec-detail-tags"
-              role="list"
-              aria-label="Motherboard details"
-            >
-              <span role="listitem">AMD A320 chipset</span>
-              <span role="listitem">Socket AM4</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Graphics</span>
+              </div>
+              <h3>GeForce GTX 1080 Ti</h3>
+              <p>Pascal GP102, still holding its own at 1440p.</p>
+              <div class="project-tags">
+                <span>11 GB GDDR5X</span><span>3584 CUDA cores</span>
+              </div>
             </div>
-          </div>
-          <div class="spec-card">
-            <span class="project-category"
-              ><span data-icon="storage" aria-hidden="true"></span
-              ><span>SSD</span></span
-            >
-            <h3>
-              Apacer AS350
-              <small>1 TB · SATA SSD</small>
-            </h3>
-            <div
-              class="project-tags spec-detail-tags"
-              role="list"
-              aria-label="Drive details"
-            >
-              <span role="listitem">Windows (C:)</span>
-              <span role="listitem">Games &amp; projects (D:)</span>
+          </article>
+          <article class="project-card spec-card">
+            <div class="spec-visual" aria-hidden="true">
+              <span data-icon="chip"></span>
             </div>
-          </div>
-          <div class="spec-card">
-            <span class="project-category"
-              ><span data-icon="storage" aria-hidden="true"></span
-              ><span>SSD</span></span
-            >
-            <h3>
-              Patriot Burst
-              <small>240 GB · SATA SSD</small>
-            </h3>
-            <div
-              class="project-tags spec-detail-tags"
-              role="list"
-              aria-label="Drive details"
-            >
-              <span role="listitem">Extra storage (E:)</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Memory</span>
+              </div>
+              <h3>16 GB DDR4</h3>
+              <p>
+                Two 8 GB sticks, one Crucial and one Ballistix, in dual
+                channel.
+              </p>
+              <div class="project-tags">
+                <span>3200 MHz</span><span>2 × 8 GB</span>
+              </div>
             </div>
-          </div>
-          <div class="spec-card">
-            <span class="project-category"
-              ><span data-icon="storage" aria-hidden="true"></span
-              ><span>HDD</span></span
-            >
-            <h3>
-              Toshiba DT01ACA100
-              <small>1 TB · 7200 RPM</small>
-            </h3>
-            <div
-              class="project-tags spec-detail-tags"
-              role="list"
-              aria-label="Drive details"
-            >
-              <span role="listitem">Archives &amp; media (F:)</span>
+          </article>
+          <article class="project-card spec-card">
+            <div class="spec-visual" aria-hidden="true">
+              <span data-icon="board"></span>
             </div>
-          </div>
-          <div class="spec-card">
-            <span class="project-category"
-              ><span data-icon="monitor" aria-hidden="true"></span
-              ><span>Display</span></span
-            >
-            <h3>
-              Samsung Odyssey G5
-              <small>2560 × 1440</small>
-            </h3>
-            <div
-              class="project-tags spec-detail-tags"
-              role="list"
-              aria-label="Display details"
-            >
-              <span role="listitem">QHD</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Motherboard</span>
+              </div>
+              <h3>BIOSTAR A320MD PRO</h3>
+              <p>Compact Micro-ATX board on the A320 chipset.</p>
+              <div class="project-tags">
+                <span>Socket AM4</span><span>PCIe 3.0</span>
+              </div>
             </div>
-          </div>
-          <div class="spec-card">
-            <span class="project-category"
-              ><span data-icon="computer" aria-hidden="true"></span
-              ><span>Operating system</span></span
-            >
-            <h3>
-              Windows 11 Pro N
-              <small>64-bit</small>
-            </h3>
-            <div
-              class="project-tags spec-detail-tags"
-              role="list"
-              aria-label="Operating system details"
-            >
-              <span role="listitem">Version 23H2</span>
+          </article>
+          <article class="project-card spec-card">
+            <div class="spec-visual" aria-hidden="true">
+              <span data-icon="storage"></span>
             </div>
-          </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Storage</span>
+              </div>
+              <h3>Apacer AS350</h3>
+              <p>Windows (C:) and the games library (D:) live here.</p>
+              <div class="project-tags">
+                <span>SATA SSD</span><span>1 TB</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card spec-card">
+            <div class="spec-visual" aria-hidden="true">
+              <span data-icon="storage"></span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Storage</span>
+              </div>
+              <h3>Patriot Burst</h3>
+              <p>A smaller extra drive (E:).</p>
+              <div class="project-tags">
+                <span>SATA SSD</span><span>240 GB</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card spec-card">
+            <div class="spec-visual" aria-hidden="true">
+              <span data-icon="Toshiba"></span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Storage</span>
+              </div>
+              <h3>Toshiba DT01ACA100</h3>
+              <p>Spinning storage for archives and media (F:).</p>
+              <div class="project-tags">
+                <span>HDD</span><span>1 TB</span><span>7200 RPM</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card spec-card">
+            <div class="spec-visual" aria-hidden="true">
+              <span data-icon="Samsung"></span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Display</span>
+              </div>
+              <h3>Odyssey G5</h3>
+              <p>The main display, a curved QHD panel.</p>
+              <div class="project-tags"><span>2560 × 1440</span></div>
+            </div>
+          </article>
+          <article class="project-card spec-card">
+            <div class="spec-visual" aria-hidden="true">
+              <span data-icon="Windows"></span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Software</span>
+              </div>
+              <h3>Windows 11 Pro N</h3>
+              <p>Version 23H2.</p>
+              <div class="project-tags"><span>64-bit</span></div>
+            </div>
+          </article>
         </div>
       </section>
     </main>
