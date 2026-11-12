@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="N0rule's PC — full spec sheet." />
+    <meta property="og:title" content="N0rule's PC" />
+    <meta property="og:description" content="Full spec sheet." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://n0rule.is-a.dev/spec" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#1e1e2e" />
+    <link rel="icon" href="./images/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" href="./images/favicons/favicon_apple.png" />
+    <link rel="canonical" href="https://n0rule.is-a.dev/spec" />
+    <title>N0rule's PC — Specs</title>
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("n0rule-theme") || "dark";
+      } catch {}
+    </script>
+    <script type="module" crossorigin src="./js/spec.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/spec.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main"><span>Skip to content</span></a>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <nav id="navigation" aria-label="Main navigation">
+          <a href="/"
+            ><span data-icon="user" aria-hidden="true"></span
+            ><span>n0rule.is-a.dev</span></a
+          >
+        </nav>
+        <div class="nav-actions">
+          <button
+            class="icon-button"
+            id="theme-toggle"
+            aria-label="Switch to light theme"
+          >
+            <span
+              class="theme-icon theme-sun"
+              data-icon="sun"
+              aria-hidden="true"
+            ></span>
+            <span
+              class="theme-icon theme-moon"
+              data-icon="moon"
+              aria-hidden="true"
+            ></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <section id="home" class="hero container" aria-label="Introduction">
+        <div class="hero-copy">
+          <h1><span>My PC</span><span class="hello-wave" aria-hidden="true">🖥️</span></h1>
+          <p class="hero-role"><span>Full spec sheet</span></p>
+          <p class="hero-description">
+            <span
+              >The machine I build, game, and create on. Shared by link — if
+              you're reading this, you probably asked for it.</span
+            >
+          </p>
+          <div class="hero-buttons">
+            <a class="button secondary" href="/"
+              ><span data-icon="external" aria-hidden="true"></span
+              ><span>Back to the main site</span></a
+            >
+          </div>
+        </div>
+      </section>
+      <section id="specs" class="section container specs-section">
+        <div class="section-heading">
+          <div>
+            <h2>
+              <span class="heading-icon" data-icon="cpu" aria-hidden="true"></span
+              ><span>Specs</span>
+            </h2>
+          </div>
+        </div>
+        <div class="spec-grid">
+          <div class="spec-card">
+            <span class="project-category"
+              ><span data-icon="cpu" aria-hidden="true"></span
+              ><span>Processor</span></span
+            >
+            <h3>
+              AMD Ryzen 5 2600
+              <small>6 cores · 12 threads</small>
+            </h3>
+            <div
+              class="project-tags spec-detail-tags"
+              role="list"
+              aria-label="Processor details"
+            >
+              <span role="listitem">3.4 GHz base</span>
+              <span role="listitem">3.9 GHz boost</span>
+              <span role="listitem">65 W TDP</span>
+            </div>
+          </div>
+          <div class="spec-card">
+            <span class="project-category"
+              ><span data-icon="gpu" aria-hidden="true"></span
+              ><span>Graphics</span></span
+            >
+            <h3>
+              NVIDIA GeForce
+              <small>GTX 1080 Ti</small>
+            </h3>
+            <div
+              class="project-tags spec-detail-tags"
+              role="list"
+              aria-label="Graphics details"
+            >
+              <span role="listitem">11 GB GDDR5X</span>
+              <span role="listitem">Pascal GP102</span>
+            </div>
+          </div>
+          <div class="spec-card">
+            <span class="project-category"
+              ><span data-icon="ram" aria-hidden="true"></span
+              ><span>Memory</span></span
+            >
+            <h3>
+              16 GB DDR4
+              <small>2 × 8 GB · 3200 MHz</small>
+            </h3>
+            <div
+              class="project-tags spec-detail-tags"
+              role="list"
+              aria-label="Memory details"
+            >
+              <span role="listitem">Crucial 8 GB</span>
+              <span role="listitem">Crucial Ballistix 8 GB</span>
+            </div>
+          </div>
+          <div class="spec-card">
+            <span class="project-category"
+              ><span data-icon="board" aria-hidden="true"></span
+              ><span>Motherboard</span></span
+            >
+            <h3>
+              BIOSTAR
+              <small>A320MD PRO</small>
+            </h3>
+            <div
+              class="project-tags spec-detail-tags"
+              role="list"
+              aria-label="Motherboard details"
+            >
+              <span role="listitem">AMD A320 chipset</span>
+              <span role="listitem">Socket AM4</span>
+            </div>
+          </div>
+          <div class="spec-card">
+            <span class="project-category"
+              ><span data-icon="storage" aria-hidden="true"></span
+              ><span>SSD</span></span
+            >
+            <h3>
+              Apacer AS350
+              <small>1 TB · SATA SSD</small>
+            </h3>
+            <div
+              class="project-tags spec-detail-tags"
+              role="list"
+              aria-label="Drive details"
+            >
+              <span role="listitem">Windows (C:)</span>
+              <span role="listitem">Games &amp; projects (D:)</span>
+            </div>
+          </div>
+          <div class="spec-card">
+            <span class="project-category"
+              ><span data-icon="storage" aria-hidden="true"></span
+              ><span>SSD</span></span
+            >
+            <h3>
+              Patriot Burst
+              <small>240 GB · SATA SSD</small>
+            </h3>
+            <div
+              class="project-tags spec-detail-tags"
+              role="list"
+              aria-label="Drive details"
+            >
+              <span role="listitem">Extra storage (E:)</span>
+            </div>
+          </div>
+          <div class="spec-card">
+            <span class="project-category"
+              ><span data-icon="storage" aria-hidden="true"></span
+              ><span>HDD</span></span
+            >
+            <h3>
+              Toshiba DT01ACA100
+              <small>1 TB · 7200 RPM</small>
+            </h3>
+            <div
+              class="project-tags spec-detail-tags"
+              role="list"
+              aria-label="Drive details"
+            >
+              <span role="listitem">Archives &amp; media (F:)</span>
+            </div>
+          </div>
+          <div class="spec-card">
+            <span class="project-category"
+              ><span data-icon="monitor" aria-hidden="true"></span
+              ><span>Display</span></span
+            >
+            <h3>
+              Samsung Odyssey G5
+              <small>2560 × 1440</small>
+            </h3>
+            <div
+              class="project-tags spec-detail-tags"
+              role="list"
+              aria-label="Display details"
+            >
+              <span role="listitem">QHD</span>
+            </div>
+          </div>
+          <div class="spec-card">
+            <span class="project-category"
+              ><span data-icon="computer" aria-hidden="true"></span
+              ><span>Operating system</span></span
+            >
+            <h3>
+              Windows 11 Pro N
+              <small>64-bit</small>
+            </h3>
+            <div
+              class="project-tags spec-detail-tags"
+              role="list"
+              aria-label="Operating system details"
+            >
+              <span role="listitem">Version 23H2</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="container footer">
+      <span>© <span id="year">2026</span> N0rule</span
+      ><a href="#home" class="back-top"
+        >Back to top
+        <span data-icon="up" aria-hidden="true"></span
+      ></a>
+    </footer>
+  </body>
+</html>

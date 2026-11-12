@@ -21,6 +21,12 @@ const iconNames = {
   reset: "restart_alt",
   up: "arrow_upward",
   brightness: "brightness_6",
+  gpu: "bolt",
+  ram: "view_module",
+  board: "developer_board",
+  storage: "storage",
+  monitor: "desktop_windows",
+  computer: "computer",
 };
 
 const brandIcons = {
