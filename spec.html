@@ -35,8 +35,12 @@
   <body>
     <a class="skip-link" href="#main"><span>Skip to content</span></a>
     <header class="site-header">
-      <div class="container nav-inner">
-        <nav id="navigation" aria-label="Main navigation">
+      <div class="spec-header">
+        <nav
+          id="navigation"
+          class="nav-inner"
+          aria-label="Main navigation"
+        >
           <a href="/"
             ><span data-icon="web" aria-hidden="true"></span
             ><span>N0rule.is-a.dev</span></a
@@ -72,152 +76,107 @@
           <p class="hero-role"><span>Full spec sheet</span></p>
         </div>
       </section>
-      <section id="specs" class="section container specs-section">
-        <div class="section-heading">
-          <div>
-            <h2>
-              <span class="heading-icon" data-icon="cpu" aria-hidden="true"></span
-              ><span>Specs</span>
-            </h2>
-          </div>
-        </div>
-        <div id="spec-grid" class="project-grid">
-          <article class="project-card spec-card">
-            <div class="spec-visual" aria-hidden="true">
+      <section id="specs" class="section container" aria-label="Specs">
+        <div class="skills-grid spec-grid">
+          <article class="skill-card spec-card">
+            <div class="skill-icon spec-icon" aria-hidden="true">
               <span data-icon="AMD"></span>
             </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-category">Processor</span>
-              </div>
+            <div class="skill-top">
               <h3>Ryzen 5 2600</h3>
-              <p>
-                6 cores and 12 threads, from a 3.4 GHz base up to a 3.9 GHz
-                boost.
-              </p>
-              <div class="project-tags">
-                <span>Socket AM4</span><span>Zen+</span><span>65 W TDP</span>
-              </div>
+              <span class="skill-level">Processor</span>
+            </div>
+            <p>6 cores and 12 threads, up to a 3.9 GHz boost.</p>
+            <div class="project-tags">
+              <span>Zen+</span><span>65 W TDP</span><span>AM4</span>
             </div>
           </article>
-          <article class="project-card spec-card">
-            <div class="spec-visual" aria-hidden="true">
+          <article class="skill-card spec-card">
+            <div class="skill-icon spec-icon" aria-hidden="true">
               <span data-icon="NVIDIA"></span>
             </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-category">Graphics</span>
-              </div>
-              <h3>GeForce GTX 1080 Ti</h3>
-              <p>Pascal GP102, still holding its own at 1440p.</p>
-              <div class="project-tags">
-                <span>11 GB GDDR5X</span><span>3584 CUDA cores</span>
-              </div>
+            <div class="skill-top">
+              <h3>GTX 1080 Ti</h3>
+              <span class="skill-level">Graphics</span>
+            </div>
+            <p>Pascal flagship that still holds 1440p comfortably.</p>
+            <div class="project-tags">
+              <span>11 GB GDDR5X</span><span>3584 CUDA cores</span>
             </div>
           </article>
-          <article class="project-card spec-card">
-            <div class="spec-visual" aria-hidden="true">
+          <article class="skill-card spec-card">
+            <div class="skill-icon spec-icon" aria-hidden="true">
               <span data-icon="chip"></span>
             </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-category">Memory</span>
-              </div>
+            <div class="skill-top">
               <h3>16 GB DDR4</h3>
-              <p>
-                Two 8 GB sticks, one Crucial and one Ballistix, in dual
-                channel.
-              </p>
-              <div class="project-tags">
-                <span>3200 MHz</span><span>2 × 8 GB</span>
-              </div>
+              <span class="skill-level">Memory</span>
+            </div>
+            <p>One Crucial stick and one Ballistix, in dual channel.</p>
+            <div class="project-tags">
+              <span>3200 MHz</span><span>2 × 8 GB</span>
             </div>
           </article>
-          <article class="project-card spec-card">
-            <div class="spec-visual" aria-hidden="true">
+          <article class="skill-card spec-card">
+            <div class="skill-icon spec-icon" aria-hidden="true">
               <span data-icon="board"></span>
             </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-category">Motherboard</span>
-              </div>
-              <h3>BIOSTAR A320MD PRO</h3>
-              <p>Compact Micro-ATX board on the A320 chipset.</p>
-              <div class="project-tags">
-                <span>Socket AM4</span><span>PCIe 3.0</span>
-              </div>
+            <div class="skill-top">
+              <h3>A320MD PRO</h3>
+              <span class="skill-level">Motherboard</span>
             </div>
+            <p>BIOSTAR Micro-ATX board on the A320 chipset.</p>
+            <div class="project-tags"><span>PCIe 3.0</span></div>
           </article>
-          <article class="project-card spec-card">
-            <div class="spec-visual" aria-hidden="true">
+          <article class="skill-card spec-card">
+            <div class="skill-icon spec-icon" aria-hidden="true">
               <span data-icon="storage"></span>
             </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-category">Storage</span>
-              </div>
-              <h3>Apacer AS350</h3>
-              <p>Windows (C:) and the games library (D:) live here.</p>
-              <div class="project-tags">
-                <span>SATA SSD</span><span>1 TB</span>
-              </div>
+            <div class="skill-top">
+              <h3>2.1 TB across three drives</h3>
+              <span class="skill-level">Storage</span>
             </div>
+            <ul class="spec-drives">
+              <li>
+                <span class="drive-name">Apacer AS350</span>
+                <span class="drive-pill">1 TB SSD</span>
+                <span class="drive-role"
+                  >Windows and the games library</span
+                >
+              </li>
+              <li>
+                <span class="drive-name">Patriot Burst</span>
+                <span class="drive-pill">240 GB SSD</span>
+                <span class="drive-role">Extra space</span>
+              </li>
+              <li>
+                <span class="drive-name">Toshiba DT01ACA100</span>
+                <span class="drive-pill">1 TB HDD</span>
+                <span class="drive-role">Archives and media</span>
+              </li>
+            </ul>
           </article>
-          <article class="project-card spec-card">
-            <div class="spec-visual" aria-hidden="true">
-              <span data-icon="storage"></span>
-            </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-category">Storage</span>
-              </div>
-              <h3>Patriot Burst</h3>
-              <p>A smaller extra drive (E:).</p>
-              <div class="project-tags">
-                <span>SATA SSD</span><span>240 GB</span>
-              </div>
-            </div>
-          </article>
-          <article class="project-card spec-card">
-            <div class="spec-visual" aria-hidden="true">
-              <span data-icon="Toshiba"></span>
-            </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-category">Storage</span>
-              </div>
-              <h3>Toshiba DT01ACA100</h3>
-              <p>Spinning storage for archives and media (F:).</p>
-              <div class="project-tags">
-                <span>HDD</span><span>1 TB</span><span>7200 RPM</span>
-              </div>
-            </div>
-          </article>
-          <article class="project-card spec-card">
-            <div class="spec-visual" aria-hidden="true">
+          <article class="skill-card spec-card">
+            <div class="skill-icon spec-icon" aria-hidden="true">
               <span data-icon="Samsung"></span>
             </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-category">Display</span>
-              </div>
+            <div class="skill-top">
               <h3>Odyssey G5</h3>
-              <p>The main display, a curved QHD panel.</p>
-              <div class="project-tags"><span>2560 × 1440</span></div>
+              <span class="skill-level">Display</span>
             </div>
+            <p>Curved QHD panel for games and work.</p>
+            <div class="project-tags"><span>2560 × 1440</span></div>
           </article>
-          <article class="project-card spec-card">
-            <div class="spec-visual" aria-hidden="true">
+          <article class="skill-card spec-card">
+            <div class="skill-icon spec-icon" aria-hidden="true">
               <span data-icon="Windows"></span>
             </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-category">Software</span>
-              </div>
+            <div class="skill-top">
               <h3>Windows 11 Pro N</h3>
-              <p>Version 23H2.</p>
-              <div class="project-tags"><span>64-bit</span></div>
+              <span class="skill-level">Software</span>
             </div>
+            <p>The N edition skips the bundled media apps.</p>
+            <div class="project-tags"><span>23H2</span><span>64-bit</span></div>
           </article>
         </div>
       </section>
