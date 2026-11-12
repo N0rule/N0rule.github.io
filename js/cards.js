@@ -69,11 +69,12 @@ function updateCardFrame() {
   glareX += (tx - glareX) * 0.13;
   glareY += (ty - glareY) * 0.13;
   // Cap the combined tilt, including diagonal corners, at 6 degrees.
-  // Oversized cards can opt into a smaller cap: the same angle swings a
-  // big card's edges much further, so they stay proportionate via
-  // data-tilt-max.
+  // Oversized cards opt out via data-tilt-max: the same angle swings a
+  // big card's edges much further, so they can dial it down or turn
+  // the rotation off entirely ("0") and keep the rise, tint, and glare.
   const magnitude = Math.max(1, Math.hypot(tiltX, tiltY));
-  const maxTilt = parseFloat(activeCard.dataset.tiltMax) || 6;
+  const rawTilt = activeCard.dataset.tiltMax;
+  const maxTilt = rawTilt === undefined ? 6 : parseFloat(rawTilt) || 0;
   activeCard.style.transform =
     `perspective(1100px) rotateX(${((-tiltY * maxTilt) / magnitude).toFixed(2)}deg) ` +
     `rotateY(${((tiltX * maxTilt) / magnitude).toFixed(2)}deg)`;

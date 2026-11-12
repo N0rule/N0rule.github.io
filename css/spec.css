@@ -32,6 +32,24 @@
   white-space: nowrap;
 }
 
+/* The hero: the site's hero anatomy (name, role, description) with the
+   monitor glyph inlined into the h1's centered box, so the whole
+   composition sits at the exact page center - an absolutely positioned
+   emoji hanging outside the box is what threw the old hero off. */
+.spec-hero-emoji {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 40px;
+  line-height: 1;
+  /* Rest the glyph on the cap-height of the heading text. */
+  vertical-align: 0.28em;
+}
+@media (max-width: 500px) {
+  .spec-hero-emoji {
+    font-size: 30px;
+  }
+}
+
 /* One card for everything: a row per component, thin rules between.
    44px brand glyphs ride on the left, name and category in the middle,
    numbers as pill tags on the right. */
