@@ -1,0 +1,1678 @@
+/* Catppuccin colors, centered composition, and soft Material-style surfaces. */
+:root {
+  color-scheme: dark;
+  --bg: #1e1e2e;
+  --surface: #181825;
+  --raised: #313244;
+  --text: #cdd6f4;
+  --secondary: #bac2de;
+  --muted: #a6adc8;
+  --accent: #cba6f7;
+  --border: #45475a;
+  --subtle-border: #313244;
+  --header: #1e1e2ef2;
+  --on-accent: #181825;
+  --elevation: 0 2px 6px #0000001f;
+  --motion-standard: cubic-bezier(0.2, 0, 0, 1);
+  --glare-blend: overlay;
+  --glare-op: 0.5;
+}
+:root[data-theme="light"] {
+  /* Catppuccin Latte: base, mantle, crust, text, and mauve. */
+  color-scheme: light;
+  --bg: #eff1f5;
+  --surface: #e6e9ef;
+  --raised: #dce0e8;
+  --text: #4c4f69;
+  --secondary: #5c5f77;
+  --muted: #5c5f77;
+  --accent: #8839ef;
+  --border: #bcc0cc;
+  --subtle-border: #ccd0da;
+  --header: #eff1f5f2;
+  --on-accent: #eff1f5;
+  --elevation: 0 2px 6px #4c4f6914;
+  --glare-blend: soft-light;
+  --glare-op: 0.55;
+}
+/* Latte mauve is too low-contrast for small text on its darker surfaces. */
+:root[data-theme="light"]
+  :is(
+    #navigation a.active,
+    #navigation a:hover,
+    .language-menu button:hover,
+    .language-menu button[aria-pressed="true"],
+    .project-category,
+    .project-links a:hover,
+    .commission-note .text-link,
+    .model-choice.selected,
+    .skill-level
+  ) {
+  color: var(--text);
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 105px;
+  scrollbar-gutter: stable both-edges;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Nunito", "Trebuchet MS", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+:where(button, a, input):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+h2 {
+  display: grid;
+  grid-template-columns: 30px minmax(0, auto) 30px;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  font-size: clamp(29px, 3.2vw, 36px);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.6px;
+}
+h2::after {
+  content: "";
+  width: 30px;
+}
+h3 {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+}
+.container {
+  width: min(1120px, calc(100% - 64px));
+  margin-inline: auto;
+}
+.icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  background: currentColor;
+  -webkit-mask: var(--icon-url) center / contain no-repeat;
+  mask: var(--icon-url) center / contain no-repeat;
+}
+[data-icon] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.skip-link {
+  position: fixed;
+  top: -90px;
+  left: 20px;
+  z-index: 100;
+  padding: 12px 20px;
+  border-radius: 99px;
+  color: var(--on-accent);
+  background: var(--accent);
+}
+.skip-link:focus {
+  top: 12px;
+}
+.noscript-note {
+  margin: 16px auto 0;
+  width: min(1120px, calc(100% - 64px));
+  padding: 12px 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--secondary);
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+.nav-inner {
+  position: relative;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 60px;
+  padding: 7px 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  pointer-events: auto;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+.site-header.is-scrolled .nav-inner {
+  background: var(--header);
+  border-color: var(--subtle-border);
+  backdrop-filter: blur(16px);
+}
+#navigation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#navigation a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 44px;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 99px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+#navigation .icon {
+  width: 20px;
+  height: 20px;
+}
+#navigation a:hover,
+#navigation a.active {
+  background: var(--raised);
+  color: var(--accent);
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.language-switcher {
+  position: relative;
+}
+.language-toggle,
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: transparent;
+}
+.language-toggle {
+  gap: 7px;
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 800;
+}
+.nav-actions :is(.language-toggle, .icon-button) {
+  border-color: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+.nav-actions .icon-button .icon {
+  width: 20px;
+  height: 20px;
+}
+.language-toggle .icon {
+  width: 20px;
+  height: 20px;
+}
+.icon-button {
+  width: 44px;
+  flex-shrink: 0;
+}
+.language-toggle:hover,
+.icon-button:hover {
+  background: var(--raised);
+}
+.language-menu {
+  display: grid;
+  gap: 4px;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 170px;
+  padding: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--elevation);
+}
+.language-menu button {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 12px;
+  margin: 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  text-align: left;
+  font-size: 14px;
+}
+.language-menu button:hover {
+  color: var(--accent);
+  background: var(--raised);
+}
+.language-menu button[aria-pressed="true"] {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--surface) 90%, var(--accent));
+}
+.language-menu button:focus-visible {
+  outline-offset: -3px;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding-block: 56px 70px;
+  text-align: center;
+}
+.hero-copy {
+  width: min(660px, 100%);
+  min-width: 0;
+}
+.hero h1 {
+  display: inline-block;
+  position: relative;
+  font-size: 68px;
+  line-height: 1.15;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+}
+.hello-wave {
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-40%);
+  font-size: 33px;
+  line-height: 1;
+  letter-spacing: normal;
+  transform-origin: 50% 85%;
+}
+.hero-role {
+  margin-top: 13px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--secondary);
+}
+.hero-description {
+  margin: 18px auto 0;
+  max-width: 44ch;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 27px;
+}
+.portrait-wrap {
+  order: -1;
+  width: 184px;
+  animation: float 6s ease-in-out infinite;
+}
+.hero-portrait {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 4px solid var(--accent);
+  padding: 4px;
+  border-radius: 50%;
+  background: var(--bg);
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 49px;
+  padding: 12px 23px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.6;
+  transition: background-color 0.18s;
+}
+.button .icon {
+  width: 20px;
+  height: 20px;
+}
+.button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.button.secondary {
+  background: transparent;
+  color: var(--text);
+}
+.button.primary:hover {
+  background: color-mix(in srgb, var(--accent) 90%, var(--text));
+}
+.button.secondary:hover {
+  background: var(--raised);
+}
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--accent);
+}
+.text-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.text-link .icon {
+  width: 18px;
+  height: 18px;
+}
+.section {
+  padding-block: 66px;
+}
+.heading-icon {
+  color: var(--accent);
+}
+.heading-icon .icon {
+  width: 30px;
+  height: 30px;
+}
+.section-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.about-section {
+  padding-top: 12px;
+  padding-bottom: 54px;
+  text-align: center;
+}
+.about-copy {
+  max-width: 72ch;
+  margin: 25px auto 0;
+}
+.about-copy p {
+  margin-bottom: 14px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+.about-copy p:first-child {
+  color: var(--secondary);
+}
+.about-copy p:last-child {
+  margin: 0;
+}
+.project-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 9px 16px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+.filter .icon {
+  width: 18px;
+  height: 18px;
+}
+.filter:hover {
+  background: var(--raised);
+  color: var(--text);
+}
+.filter.active {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--accent);
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+/* A filtered result set flows on its own grid: auto-fit collapses the
+   empty tracks, so short sets fill their rows without holes, and the
+   orphan-centering rules never misfire on hidden cards. */
+#project-grid.is-filtered {
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+}
+.project-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--subtle-border);
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--surface);
+}
+#project-grid:not(.is-filtered)
+  .project-card:last-child:nth-child(3n + 1),
+.skill-card:last-child:nth-child(3n + 1) {
+  grid-column: 2;
+}
+.project-image {
+  height: 210px;
+  overflow: hidden;
+  background: var(--raised);
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 23px;
+}
+.project-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-bottom: 12px;
+}
+.project-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.project-category .icon {
+  width: 16px;
+  height: 16px;
+}
+.project-body > p {
+  margin-top: 11px;
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 18px;
+}
+.project-tags span {
+  font-size: 12px;
+  color: var(--secondary);
+  background: var(--raised);
+  border-radius: 99px;
+  padding: 4px 10px;
+}
+.project-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: auto;
+  padding-top: 18px;
+}
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+}
+.project-links a > [data-i18n] {
+  /* Optically center Nunito's glyphs against the 18px icon, not its tall line box. */
+  transform: translateY(1px);
+}
+.project-links a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.project-links .icon {
+  width: 18px;
+  height: 18px;
+}
+.project-note {
+  font-size: 12px;
+  color: var(--muted);
+}
+.project-status {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--secondary);
+  background: var(--raised);
+  padding: 3px 9px;
+  border-radius: 99px;
+}
+.gallery-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  border-radius: 30px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--surface);
+}
+.viewer-stage {
+  position: relative;
+  min-height: 520px;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--raised);
+}
+.stage-label {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 4;
+  padding: 6px 13px;
+  background: var(--bg);
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.model-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#viewer-mount:not(:empty) {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+portfolio-model-viewer {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.viewer-overlay {
+  position: absolute;
+  bottom: 22px;
+  left: 14px;
+  right: 14px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+}
+.load-model {
+  pointer-events: auto;
+}
+.model-status {
+  max-width: 100%;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 99px;
+  background: var(--bg);
+  text-align: center;
+}
+.fullscreen-button {
+  position: absolute;
+  right: 17px;
+  top: 17px;
+  z-index: 4;
+  background: var(--bg);
+}
+.gallery-info {
+  padding: 28px 22px;
+}
+.gallery-info h3 {
+  font-size: 20px;
+  text-align: center;
+}
+.model-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 18px;
+}
+.model-choice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 23px;
+  border: 1px solid transparent;
+  border-radius: 99px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+}
+.model-choice.selected {
+  color: var(--accent);
+  background: var(--raised);
+}
+.model-choice:hover {
+  border-color: var(--border);
+}
+.selection-dot {
+  position: absolute;
+  right: 14px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+}
+.selected .selection-dot {
+  background: var(--accent);
+}
+.viewer-settings {
+  min-width: 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 26px 0 0;
+  padding: 14px 0 0;
+}
+.viewer-settings legend {
+  font-size: 14px;
+  font-weight: 800;
+  padding: 0 10px 0 0;
+}
+.viewer-settings:disabled {
+  opacity: 0.5;
+}
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  margin: 4px 0;
+  font-size: 13px;
+  cursor: pointer;
+}
+.switch-input {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 28px;
+  margin: 0;
+  border: 2px solid var(--muted);
+  border-radius: 99px;
+  background: var(--raised);
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+.switch-input::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+}
+.switch-input:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.switch-input:checked::before {
+  transform: translateX(20px);
+  background: var(--on-accent);
+}
+.switch-input:disabled {
+  cursor: not-allowed;
+}
+#exposure-value {
+  min-width: 51px;
+  padding: 2px 9px;
+  border-radius: 99px;
+  background: var(--raised);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+.brightness-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 17px;
+  color: var(--accent);
+}
+.brightness-control > [data-icon] {
+  flex-shrink: 0;
+}
+#exposure {
+  --range-progress: 41.18%;
+  appearance: none;
+  -webkit-appearance: none;
+  min-width: 0;
+  width: 100%;
+  height: 44px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+#exposure::-webkit-slider-runnable-track {
+  height: 12px;
+  border-radius: 99px;
+  background: linear-gradient(
+    to right,
+    var(--accent) 0% var(--range-progress),
+    var(--raised) var(--range-progress) 100%
+  );
+}
+#exposure::-moz-range-track {
+  height: 12px;
+  border-radius: 99px;
+  background: var(--raised);
+}
+#exposure::-moz-range-progress {
+  height: 12px;
+  border-radius: 99px;
+  background: var(--accent);
+}
+#exposure::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 28px;
+  width: 8px;
+  margin-top: -8px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--surface);
+  transition: width 0.18s var(--motion-standard);
+}
+#exposure::-moz-range-thumb {
+  height: 28px;
+  width: 8px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--surface);
+  transition: width 0.18s var(--motion-standard);
+}
+#exposure:hover::-webkit-slider-thumb,
+#exposure:focus-visible::-webkit-slider-thumb {
+  width: 12px;
+}
+#exposure:hover::-moz-range-thumb,
+#exposure:focus-visible::-moz-range-thumb {
+  width: 12px;
+}
+#exposure:disabled {
+  cursor: not-allowed;
+}
+.viewer-settings .button {
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 15px;
+  font-size: 12px;
+}
+.commission-note {
+  margin-top: 26px;
+  padding-top: 23px;
+  border-top: 1px solid var(--border);
+}
+.commission-note h4 {
+  font-size: 16px;
+  font-weight: 800;
+}
+.commission-note p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+}
+.commission-note .text-link {
+  font-size: 13px;
+}
+.gallery-workspace:fullscreen {
+  width: 100%;
+  height: 100dvh;
+  border: 0;
+  border-radius: 0;
+}
+.gallery-workspace:fullscreen .viewer-stage {
+  min-height: 0;
+  height: 100%;
+}
+.gallery-workspace:fullscreen .gallery-info {
+  overflow-y: auto;
+}
+.gallery-workspace:fullscreen .commission-note {
+  display: none;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.skill-card {
+  padding: 28px 24px;
+  border: 1px solid var(--subtle-border);
+  border-radius: 28px;
+  background: var(--surface);
+  text-align: center;
+}
+.skill-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin-bottom: 17px;
+}
+.skill-icon img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+:root:not([data-theme="light"]) .skill-icon img[src*="/unity/"] {
+  filter: invert(1);
+}
+/* The CDN-error fallback renders as an icon span, not an <img>: give it
+   the same footprint as the image it replaces. */
+.skill-icon-fallback .icon {
+  width: 44px;
+  height: 44px;
+}
+.skill-top {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 9px;
+}
+.skill-top h3 {
+  font-size: 21px;
+}
+.skill-level {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--raised);
+  padding: 4px 12px;
+  border-radius: 99px;
+}
+.skill-card p {
+  margin: 14px auto 0;
+  max-width: 34ch;
+  color: var(--muted);
+  font-size: 13px;
+}
+.contact-intro {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.contact-intro p {
+  margin: 15px auto 0;
+  max-width: 44ch;
+  font-size: 16px;
+  color: var(--muted);
+}
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.social-link {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 13px;
+  padding: 28px 20px;
+  border: 1px solid var(--subtle-border);
+  border-radius: 28px;
+  background: var(--surface);
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--raised);
+  color: var(--accent);
+}
+.social-icon .icon {
+  width: 25px;
+  height: 25px;
+}
+.social-link strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 800;
+}
+.social-link small {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.project-card,
+.skill-card,
+.social-link {
+  transition:
+    border-color 180ms var(--motion-standard),
+    translate 220ms var(--motion-standard),
+    scale 220ms var(--motion-standard);
+}
+.project-card:has(:focus-visible),
+.social-link:focus-visible {
+  border-color: var(--accent);
+}
+/* The hover tint is a composited opacity layer, so it never repaints card content.
+   Cards rise for keyboard focus only: a mouse click focuses the link too,
+   and that focus survives the trip to a new tab. */
+@media (hover: hover) and (pointer: fine) {
+  :is(.project-card, .skill-card, .social-link)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--accent);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms var(--motion-standard);
+  }
+  :is(.project-card, .skill-card, .social-link):is(:hover, :focus-visible)::before,
+    .project-card:has(:focus-visible)::before {
+    opacity: 0.08;
+  }
+  :is(.project-card, .skill-card, .social-link):hover {
+    translate: 0 -2px;
+    border-color: var(--accent);
+  }
+  /* Returning from another tab or window, the browser keeps the last
+     :hover applied until the pointer moves; hold that state off until
+     then (js/hover-unstick.js drives the class). Keyboard focus is
+     left alone: it shows real state, not stale pointer state. */
+  html.hover-freeze
+    :is(.project-card, .skill-card, .social-link):hover:not(
+      :focus-visible,
+      :has(:focus-visible)
+    ) {
+    translate: 0 0;
+    border-color: var(--subtle-border);
+  }
+  html.hover-freeze
+    :is(.project-card, .skill-card, .social-link):hover:not(
+      :focus-visible,
+      :has(:focus-visible)
+    )::before {
+    opacity: 0;
+  }
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 25px;
+  border-top: 1px solid var(--subtle-border);
+  color: var(--muted);
+  font-size: 13px;
+}
+.back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-weight: 700;
+}
+.back-top:hover {
+  color: var(--accent);
+}
+.back-top .icon {
+  width: 18px;
+  height: 18px;
+}
+/* Motion answers an action; reflections stay inside the cards, never a shadow. */
+:where(
+  .button,
+  .icon-button,
+  .language-toggle,
+  .language-menu button,
+  .filter,
+  .model-choice,
+  #navigation a,
+  .project-links a,
+  .social-link
+) {
+  position: relative;
+}
+.button,
+.icon-button,
+.language-toggle,
+.language-menu button,
+.filter,
+.model-choice,
+#navigation a,
+.project-links a,
+.social-link {
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    background-color 180ms var(--motion-standard),
+    color 180ms var(--motion-standard),
+    border-color 180ms var(--motion-standard),
+    translate 220ms var(--motion-standard),
+    scale 220ms var(--motion-standard);
+}
+@media (hover: hover) and (pointer: fine) {
+  :where(
+      .button,
+      .icon-button,
+      .language-toggle,
+      .filter,
+      .model-choice,
+      #navigation a,
+      .project-links a,
+      .social-link
+    ):not(:disabled):hover {
+    translate: 0 -2px;
+  }
+}
+:where(
+    .button,
+    .icon-button,
+    .language-toggle,
+    .filter,
+    .model-choice,
+    #navigation a,
+    .project-links a,
+    .social-link,
+    .language-menu button
+  ):not(:disabled):active {
+  scale: 0.96;
+  translate: 0 0;
+  transition-duration: 80ms;
+}
+.language-menu button:active,
+.model-choice:active {
+  background: var(--raised);
+}
+.switch-input:not(:disabled):hover {
+  border-color: var(--accent);
+}
+.switch-input:not(:disabled):active::before {
+  scale: 1.15;
+}
+.switch-input::before {
+  transition:
+    transform 220ms var(--motion-standard),
+    background-color 180ms var(--motion-standard),
+    scale 120ms var(--motion-standard);
+}
+.press-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: currentColor;
+  pointer-events: none;
+}
+/* Project and skill cards carry one quiet craft cue: spring-driven tilt,
+   so a card glides under the pointer like a physical object. Contact
+   cards stay plain. */
+.project-card,
+.skill-card,
+.social-link {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  contain: paint;
+}
+.card-glare {
+  display: none;
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  :is(.project-card, .skill-card) {
+    transition:
+      transform 520ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 180ms var(--motion-standard),
+      translate 220ms var(--motion-standard),
+      scale 220ms var(--motion-standard);
+  }
+  :is(.project-card, .skill-card).card-tilting {
+    /* The rAF loop owns the transform while tilting; CSS handles the rest. */
+    transition:
+      border-color 180ms var(--motion-standard),
+      translate 220ms var(--motion-standard),
+      scale 220ms var(--motion-standard);
+    will-change: transform;
+  }
+  :is(.project-card, .skill-card).card-settling {
+    will-change: transform;
+  }
+  .card-glare {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    /* A whisper of the reference's glare: a soft light at the cursor with
+       a faint shadowed rim at the far corner, both well below the level
+       that reads as a flashlight. The spring loop drives --shx/--shy, so
+       the light trails the card's turn with a little mass. */
+    background: radial-gradient(
+      farthest-corner circle
+      at calc(50% + var(--shx, 0) * 50%) calc(50% + var(--shy, 0) * 50%),
+      hsl(0 0% 100% / 0.24) 12%,
+      hsl(0 0% 100% / 0.1) 30%,
+      hsl(0 0% 0% / 0.1) 92%
+    );
+    mix-blend-mode: var(--glare-blend);
+    opacity: 0;
+    transition: opacity 280ms ease;
+  }
+  :is(.project-card, .skill-card).card-tilting .card-glare {
+    opacity: var(--glare-op);
+    transition: opacity 170ms ease;
+  }
+}
+.theme-icon {
+  position: absolute;
+  pointer-events: none;
+  transition:
+    transform 360ms var(--motion-standard),
+    opacity 220ms ease;
+}
+.theme-sun {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+.theme-moon {
+  opacity: 0;
+  transform: rotate(-100deg) scale(0.4);
+}
+:root[data-theme="light"] .theme-sun {
+  opacity: 0;
+  transform: rotate(100deg) scale(0.4);
+}
+:root[data-theme="light"] .theme-moon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+/* Palette changes are one paint. Only snapshot opacity animates site-wide. */
+:root.theme-switching *,
+:root.theme-switching *::before,
+:root.theme-switching *::after {
+  transition-property: transform, opacity, translate, scale !important;
+}
+::view-transition-group(root) {
+  animation-duration: 220ms;
+}
+::view-transition-old(root) {
+  z-index: 1;
+  animation: theme-fade-out 220ms ease-out both;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) {
+  z-index: 0;
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition {
+  pointer-events: none;
+}
+@keyframes theme-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+[hidden] {
+  display: none !important;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@media (max-width: 1050px) {
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #project-grid:not(.is-filtered) .project-card:last-child:nth-child(3n + 1) {
+    grid-column: auto;
+  }
+  #project-grid:not(.is-filtered)
+    .project-card:last-child:nth-child(2n + 1) {
+    grid-column: 1 / -1;
+    width: calc((100% - 24px) / 2);
+    justify-self: center;
+  }
+  .project-image {
+    height: 240px;
+  }
+  .gallery-workspace {
+    grid-template-columns: minmax(0, 1fr) 260px;
+  }
+}
+/* The icon deck is switched by measurement, not a breakpoint: when the
+   labeled pill no longer fits the viewport, JS toggles .is-deck on the
+   header. Every section becomes an icon, plus language and theme, in one
+   centered floating row — the whole nav visible at once. */
+.site-header.is-deck {
+  height: 68px;
+  justify-content: center;
+}
+/* The pill also carries .container, whose responsive width overrides
+   (later in source, same specificity) would stretch it edge to edge.
+   Keep it content-sized at every width. */
+.site-header .nav-inner {
+  width: max-content;
+  max-width: calc(100% - 32px);
+}
+.site-header.is-deck .nav-inner {
+  gap: 4px;
+  height: 56px;
+  padding: 6px 8px;
+}
+.site-header.is-deck #navigation {
+  gap: 4px;
+}
+.site-header.is-deck #navigation a {
+  width: 40px;
+  min-width: 40px;
+  padding: 0;
+}
+/* Labels collapse to icons but stay in the accessibility tree. */
+.site-header.is-deck #navigation a > span[data-i18n],
+.site-header.is-deck #language-code {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.site-header.is-deck .nav-actions {
+  gap: 4px;
+}
+.site-header.is-deck .nav-actions .icon-button,
+.site-header.is-deck .language-toggle {
+  width: 40px;
+  padding: 0;
+}
+@media (max-width: 760px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+  .hero {
+    gap: 28px;
+    padding-block: 42px 54px;
+  }
+  .portrait-wrap {
+    width: 164px;
+  }
+  .hero h1 {
+    font-size: 57px;
+  }
+  .hero-role {
+    font-size: 23px;
+  }
+  .hero-description {
+    font-size: 16px;
+    max-width: 38ch;
+  }
+  .section {
+    padding-block: 50px;
+  }
+  .about-section {
+    padding-top: 12px;
+  }
+  .about-copy p {
+    font-size: 15px;
+  }
+  .project-toolbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .project-grid {
+    gap: 20px;
+  }
+  #project-grid:not(.is-filtered)
+    .project-card:last-child:nth-child(2n + 1) {
+    width: calc((100% - 20px) / 2);
+  }
+  .project-image {
+    height: 200px;
+  }
+  .project-body {
+    padding: 21px;
+  }
+  .project-body h3 {
+    font-size: 20px;
+  }
+  .gallery-workspace {
+    grid-template-columns: 1fr;
+  }
+  .viewer-stage {
+    min-height: 440px;
+  }
+  .gallery-info {
+    padding: 25px;
+  }
+  .model-picker {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+  .model-choice {
+    font-size: 13px;
+    padding: 10px 8px;
+  }
+  .selection-dot {
+    display: none;
+  }
+  .viewer-settings {
+    max-width: 420px;
+    margin-inline: auto;
+  }
+  .commission-note {
+    text-align: center;
+  }
+  .commission-note p {
+    max-width: 44ch;
+    margin-inline: auto;
+  }
+  .gallery-workspace:fullscreen {
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+  .gallery-workspace:fullscreen .gallery-info {
+    max-height: 42dvh;
+  }
+  .skills-grid,
+  .social-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .skill-card:last-child:nth-child(3n + 1) {
+    grid-column: auto;
+  }
+  .skill-card:last-child:nth-child(2n + 1) {
+    grid-column: 1 / -1;
+    width: calc((100% - 18px) / 2);
+    justify-self: center;
+  }
+  .skill-card {
+    padding: 25px 20px;
+  }
+  .skill-top h3 {
+    font-size: 19px;
+  }
+}
+@media (max-width: 500px) {
+  .hero h1 {
+    font-size: 53px;
+  }
+  .hello-wave {
+    font-size: 28px;
+  }
+  .hero-role {
+    font-size: 21px;
+  }
+  .hero-description {
+    max-width: 30ch;
+    font-size: 15px;
+  }
+  .hero-buttons {
+    gap: 10px;
+  }
+  .button {
+    font-size: 12px;
+    padding-inline: 17px;
+  }
+  .button .icon {
+    width: 18px;
+    height: 18px;
+  }
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 23px;
+  }
+  #project-grid:not(.is-filtered)
+    .project-card:last-child:nth-child(2n + 1) {
+    grid-column: auto;
+    width: 100%;
+  }
+  .project-image {
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+  .project-body {
+    padding: 23px;
+  }
+  .project-body h3 {
+    font-size: 22px;
+  }
+  .filters {
+    gap: 6px;
+  }
+  .filter {
+    padding-inline: 11px;
+    font-size: 11px;
+    gap: 5px;
+  }
+  .filter .icon {
+    width: 16px;
+    height: 16px;
+  }
+  .viewer-stage {
+    min-height: 360px;
+  }
+  .stage-label {
+    top: 14px;
+    left: 14px;
+  }
+  .fullscreen-button {
+    top: 12px;
+    right: 12px;
+  }
+  .gallery-info {
+    padding: 22px;
+  }
+  .model-choice {
+    font-size: 12px;
+  }
+  .skill-card {
+    padding: 24px 14px;
+    border-radius: 24px;
+  }
+  .skill-top h3 {
+    font-size: 18px;
+  }
+  .skill-card p {
+    font-size: 12px;
+  }
+  .skill-icon img {
+    width: 40px;
+    height: 40px;
+  }
+  .social-link {
+    padding: 24px 14px;
+    border-radius: 24px;
+  }
+  .social-link strong {
+    font-size: 16px;
+  }
+  .social-link small {
+    font-size: 12px;
+  }
+  .skills-grid,
+  .social-links {
+    gap: 14px;
+  }
+  .skill-card:last-child:nth-child(2n + 1) {
+    width: calc((100% - 14px) / 2);
+  }
+}
+@media (max-width: 360px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+  /* The narrow deck is pure arithmetic — its width never depends on
+     language or font — so a width rule suffices: shrink every button so
+     the deck keeps all sections one tap away on 320px screens. */
+  .site-header.is-deck .nav-inner {
+    gap: 2px;
+    height: 52px;
+  }
+  .site-header.is-deck #navigation {
+    gap: 2px;
+  }
+  .site-header.is-deck #navigation a {
+    width: min(36px, calc((100vw - 66px) / 7));
+    min-width: 0;
+  }
+  .site-header.is-deck .nav-actions {
+    gap: 2px;
+  }
+  .site-header.is-deck .nav-actions .icon-button,
+  .site-header.is-deck .language-toggle {
+    width: min(36px, calc((100vw - 66px) / 7));
+  }
+  .hero-buttons {
+    flex-wrap: wrap;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .skill-card:last-child:nth-child(2n + 1) {
+    grid-column: auto;
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media (forced-colors: active) {
+  .switch-input:checked {
+    background: Highlight;
+  }
+  .switch-input::before {
+    background: ButtonText;
+  }
+  #exposure {
+    appearance: auto;
+  }
+}

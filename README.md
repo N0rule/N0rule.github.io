@@ -1,5 +1,3 @@
-My first Github repo
-Trying to make my first site
+# My portfolio
 
-#
-Full Rewrite incoming!
+Portfolio for my code, hardware, and 3D characters, published using GitHub Pages.

@@ -1,6 +1,13 @@
 [
-    "N0ruleV2Optimized.glb",
-    "KapiOptimized.glb",
-    "N0ruleOptimized.glb"
-
+  {
+    "name": "N0rule V2",
+    "file": "N0ruleV2Optimized.glb",
+    "poster": "n0rule-v2.webp"
+  },
+  { "name": "Kapi", "file": "KapiOptimized.glb", "poster": "kapi.webp" },
+  {
+    "name": "N0rule Original",
+    "file": "N0ruleOptimized.glb",
+    "poster": "n0rule-original.webp"
+  }
 ]

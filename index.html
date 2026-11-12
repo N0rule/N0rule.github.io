@@ -24,6 +24,13 @@
       content="https://n0rule.is-a.dev/images/profile_picture.webp"
     />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://n0rule.is-a.dev/" />
+    <meta property="og:site_name" content="N0rule" />
+    <meta
+      property="og:image:alt"
+      content="N0rule's illustrated character with dark hair and purple eyes"
+    />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" href="./images/favicons/favicon.ico" />
     <link rel="apple-touch-icon" href="./images/favicons/favicon_apple.png" />
     <link rel="canonical" href="https://n0rule.is-a.dev/" />
@@ -34,8 +41,32 @@
           localStorage.getItem("n0rule-theme") || "dark";
       } catch {}
     </script>
-    <script type="module" crossorigin src="./assets/index-BEFRyHaD.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Cdg4_xFS.css">
+    <script type="module" crossorigin src="./js/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "N0rule",
+        "url": "https://n0rule.is-a.dev/",
+        "jobTitle": "Developer & 3D Artist",
+        "sameAs": [
+          "https://github.com/N0rule",
+          "https://dsc.gg/n0rule",
+          "https://telegram.me/N0rule",
+          "https://twitter.com/_N0rule_",
+          "https://www.instagram.com/n0rule_",
+          "https://steamcommunity.com/id/N0rule"
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main"
@@ -79,11 +110,7 @@
               aria-expanded="false"
               aria-controls="language-menu"
             >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" />
-                <ellipse cx="12" cy="12" rx="4" ry="9" />
-                <path d="M3 12h18" />
-              </svg>
+              <span data-icon="language" aria-hidden="true"></span>
               <span id="language-code">EN</span>
             </button>
             <div
@@ -126,28 +153,26 @@
             aria-label="Switch to light theme"
             data-i18n-aria-label="Switch to light theme"
           >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="4" />
-              <path
-                d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
-              />
-            </svg></button
-          ><button
-            id="menu-toggle"
-            class="icon-button menu-toggle"
-            aria-label="Open navigation"
-            data-i18n-aria-label="Open navigation"
-            aria-controls="navigation"
-            aria-expanded="false"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            </svg>
-          </button>
+            <span
+              class="theme-icon theme-sun"
+              data-icon="sun"
+              aria-hidden="true"
+            ></span>
+            <span
+              class="theme-icon theme-moon"
+              data-icon="moon"
+              aria-hidden="true"
+            ></span></button>
         </div>
       </div>
     </header>
-    <main id="main">
+    <main id="main" tabindex="-1">
+      <noscript>
+        <p class="noscript-note">
+          This site needs JavaScript to show projects, skills, and the 3D
+          gallery.
+        </p>
+      </noscript>
       <section
         id="home"
         class="hero container"
@@ -156,16 +181,17 @@
       >
         <div class="hero-copy">
           <h1>
-            N0rule
-            <span class="hello-wave" aria-hidden="true">&#x270C;&#xFE0F;</span>
+            <span>N0rule</span
+            ><span class="hello-wave" aria-hidden="true">✌️</span>
           </h1>
           <p class="hero-role">
             <span data-i18n="Developer & 3D Artist">Developer & 3D Artist</span>
           </p>
           <p class="hero-description">
             <span
-              data-i18n="Creating interactive experiences through code and 3D art."
-              >Creating interactive experiences through code and 3D art.</span
+              data-i18n="I build bots, custom hardware, and worlds you can step into."
+              >I build bots, custom hardware, and worlds you can step
+              into.</span
             >
           </p>
           <div class="hero-buttons">
@@ -232,15 +258,6 @@
               ><span data-i18n="Projects">Projects</span>
             </h2>
           </div>
-          <a
-            class="text-link"
-            href="https://github.com/N0rule"
-            target="_blank"
-            rel="noopener noreferrer"
-            >GitHub
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M7 17 17 7M7 7h10v10" /></svg
-          ></a>
         </div>
         <div class="project-toolbar">
           <div
@@ -263,11 +280,9 @@
               ><span data-i18n="VR & games">VR & games</span>
             </button>
           </div>
-          <span class="project-count" id="project-count" aria-live="polite"
-            >6 projects</span
-          >
         </div>
         <div id="project-grid" class="project-grid"></div>
+        <p id="filter-status" class="visually-hidden" role="status"></p>
       </section>
       <section id="gallery" class="section container gallery-section">
         <div class="section-heading">
@@ -300,11 +315,12 @@
                 <span data-icon="cube" aria-hidden="true"></span
                 ><span data-i18n="Open 3D viewer">Open 3D viewer</span>
               </button>
-              <p id="model-status" class="model-status" role="status">
+              <p id="model-status" class="model-status">
                 <span data-i18n="Rotate, pan, and zoom to explore the details."
                   >Rotate, pan, and zoom to explore the details.</span
                 >
               </p>
+              <span id="model-announce" class="visually-hidden" role="status"></span>
             </div>
             <button
               class="icon-button fullscreen-button"
@@ -312,9 +328,7 @@
               aria-label="Enter gallery fullscreen"
               data-i18n-aria-label="Enter gallery fullscreen"
             >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" />
-              </svg>
+              <span data-icon="maximize" aria-hidden="true"></span>
             </button>
           </div>
           <aside
@@ -328,68 +342,48 @@
               role="group"
               aria-label="Choose a 3D model"
               data-i18n-aria-label="Choose a 3D model"
-            >
-              <button
-                class="model-choice selected"
-                data-model="0"
-                aria-pressed="true"
-              >
-                <span>N0rule V2</span
-                ><span class="selection-dot" aria-hidden="true"></span></button
-              ><button class="model-choice" data-model="1" aria-pressed="false">
-                <span>Kapi</span
-                ><span class="selection-dot" aria-hidden="true"></span></button
-              ><button class="model-choice" data-model="2" aria-pressed="false">
-                <span
-                  ><span data-i18n="N0rule Original"
-                    >N0rule Original</span
-                  ></span
-                ><span class="selection-dot" aria-hidden="true"></span>
-              </button>
-            </div>
+            ></div>
             <fieldset id="viewer-settings" class="viewer-settings" disabled>
               <legend>
                 <span data-i18n="View settings">View settings</span>
               </legend>
-              <label class="setting-row" for="render-mode"
-                ><span data-i18n="Display">Display</span>
-                <select
-                  id="render-mode"
-                  aria-label="Display"
-                  data-i18n-aria-label="Display"
-                >
-                  <option value="shaded">
-                    <span data-i18n="Shaded">Shaded</span>
-                  </option>
-                  <option value="wireframe">
-                    <span data-i18n="Wireframe">Wireframe</span>
-                  </option>
-                </select>
+              <label class="setting-row" for="wireframe"
+                ><span data-i18n="Wireframe">Wireframe</span>
+                <input
+                  class="switch-input"
+                  id="wireframe"
+                  type="checkbox"
+                  role="switch"
+                />
               </label>
               <label class="setting-row" for="auto-rotate"
                 ><span data-i18n="Auto-rotate">Auto-rotate</span
-                ><input id="auto-rotate" type="checkbox" checked
-              /></label>
-              <label class="setting-row" for="show-shadows"
-                ><span data-i18n="Shadows">Shadows</span
-                ><input id="show-shadows" type="checkbox" checked
+                ><input
+                  class="switch-input"
+                  id="auto-rotate"
+                  type="checkbox"
+                  role="switch"
+                  checked
               /></label>
               <label class="setting-row" for="exposure"
                 ><span data-i18n="Brightness">Brightness</span
                 ><output id="exposure-value" for="exposure">1.0</output></label
               >
-              <input
-                id="exposure"
-                type="range"
-                min="0.3"
-                max="2"
-                step="0.1"
-                value="1"
-                aria-label="Brightness"
-                data-i18n-aria-label="Brightness"
-              />
+              <div class="brightness-control">
+                <span data-icon="brightness" aria-hidden="true"></span>
+                <input
+                  id="exposure"
+                  type="range"
+                  min="0.3"
+                  max="2"
+                  step="0.1"
+                  value="1"
+                  aria-label="Brightness"
+                  data-i18n-aria-label="Brightness"
+                />
+              </div>
               <button id="reset-camera" class="button secondary" type="button">
-                <span data-icon="cube" aria-hidden="true"></span
+                <span data-icon="reset" aria-hidden="true"></span
                 ><span data-i18n="Reset camera">Reset camera</span>
               </button>
             </fieldset>
@@ -434,14 +428,11 @@
             ></span
             ><span data-i18n="Get in touch">Get in touch</span>
           </h2>
-          <a
-            class="button primary"
-            href="https://telegram.me/N0rule"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><span data-icon="Telegram" aria-hidden="true"></span
-            ><span data-i18n="Message on Telegram">Message on Telegram</span></a
-          >
+          <p>
+            <span data-i18n="For a project, an avatar, or just a hello."
+              >For a project, an avatar, or just a hello.</span
+            >
+          </p>
         </div>
         <div id="social-links" class="social-links"></div>
       </section>
@@ -450,8 +441,7 @@
       <span>© <span id="year">2026</span> N0rule</span
       ><a href="#home" class="back-top"
         ><span data-i18n="Back to top">Back to top</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m7 12 5-5 5 5M12 7v12" /></svg
+        <span data-icon="up" aria-hidden="true"></span
       ></a>
     </footer>
   </body>
