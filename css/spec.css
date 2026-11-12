@@ -1,9 +1,11 @@
-/* The /spec page. The cards reuse the site's own card classes (skill-card,
-   skill-top, skill-level, project-tags), so only the header layout, the
-   oversized brand glyphs, and the storage rows live here. */
+/* The /spec page. The sheet is one card on the site's own skill-card
+   surface; only the header pill layout and the sheet rows live here. */
 
-/* The site link sits at the exact center of the page; the theme toggle is
-   parked at the right edge, outside the pill. */
+/* The header is the site's own nav pill, holding the link and the theme
+   toggle like index.html. The pill sits centered in the page, and a
+   17px spacer inside it mirrors the toggle's box on the link's side, so
+   the N0rule.is-a.dev text lands at the exact page center; the pill
+   itself runs a little further right to hold the toggle. */
 .spec-header {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -11,58 +13,77 @@
   width: 100%;
   padding-inline: 16px;
 }
-/* main.css caps .nav-inner at calc(100% - 32px) for the flex header on
-   index. Inside this grid the percentage resolves against the pill's own
-   track, clamping it 32px short of its content and left-aligning it, so
-   the cap is lifted and the pill centers in its track. */
+/* main.css caps .nav-inner at calc(100% - 32px) for index's flex header;
+   inside this grid the percentage resolves against the pill's own track
+   and would clamp and left-shift it. Lift the cap and center the pill. */
 .spec-header .nav-inner {
   grid-column: 2;
   justify-self: center;
   max-width: none;
 }
-.spec-header .nav-actions {
-  grid-column: 3;
-  justify-self: end;
-  /* The header strip itself passes clicks through; the pill re-enables
-     them, and so must the toggle outside it. */
-  pointer-events: auto;
+/* Spacer: toggle 44px minus the link's icon 20px and its gap 7px. It
+   balances the label inside the pill; the link label never wraps. */
+.spec-header .nav-inner::before {
+  content: "";
+  width: 17px;
+  flex: none;
+}
+.spec-header #navigation a > span:last-child {
+  white-space: nowrap;
 }
 
-/* Brand glyphs ride where skill icons do, at three times the usual
-   footprint. The fixed 50px .skill-icon box would clip a 132px glyph, so
-   the box grows with it and the gap below is retuned. */
-.skill-icon.spec-icon {
-  height: auto;
-  margin-bottom: 22px;
+/* One card for everything: a row per component, thin rules between.
+   44px brand glyphs ride on the left, name and category in the middle,
+   numbers as pill tags on the right. */
+.spec-sheet {
+  max-width: 780px;
+  margin-inline: auto;
+  padding: 10px 34px;
 }
-.spec-icon .icon {
-  width: 132px;
-  height: 132px;
+.spec-rows {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+.spec-row {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  column-gap: 18px;
+  align-items: center;
+  padding-block: 19px;
+}
+.spec-row + .spec-row {
+  border-top: 1px solid var(--subtle-border);
+}
+.spec-row-icon .icon {
+  width: 44px;
+  height: 44px;
   color: var(--accent);
 }
-@media (max-width: 500px) {
-  .spec-icon .icon {
-    width: 96px;
-    height: 96px;
-  }
+.spec-row-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px 10px;
 }
-@media (max-width: 360px) {
-  .spec-icon .icon {
-    width: 72px;
-    height: 72px;
-  }
+.spec-row-head h3 {
+  font-size: 18px;
+}
+.spec-row-body p {
+  margin: 6px 0 0;
+}
+.spec-row .project-tags {
+  margin-top: 0;
+  justify-content: flex-end;
 }
 
-/* Number pills center under the card copy. */
-.spec-card .project-tags {
-  justify-content: center;
-}
-
-/* Three drives on one card: a row per drive, thin rules between. */
+/* Three drives under the storage row: a row per drive. */
 .spec-drives {
   display: grid;
   gap: 12px;
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   padding: 0;
   list-style: none;
   text-align: left;
@@ -101,4 +122,23 @@
   font-size: 12px;
   color: var(--muted);
   line-height: 1.6;
+}
+
+/* Narrow screens: the tag pills drop under the copy, the card's side
+   padding tightens, and the sheet falls back to the card's own
+   single-column measure. */
+@media (max-width: 640px) {
+  .spec-sheet {
+    padding: 6px 22px;
+  }
+  .spec-row {
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: 14px;
+    padding-block: 17px;
+  }
+  .spec-row-tags {
+    grid-column: 2;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
 }
