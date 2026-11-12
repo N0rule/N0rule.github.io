@@ -69,10 +69,14 @@ function updateCardFrame() {
   glareX += (tx - glareX) * 0.13;
   glareY += (ty - glareY) * 0.13;
   // Cap the combined tilt, including diagonal corners, at 6 degrees.
+  // Oversized cards can opt into a smaller cap: the same angle swings a
+  // big card's edges much further, so they stay proportionate via
+  // data-tilt-max.
   const magnitude = Math.max(1, Math.hypot(tiltX, tiltY));
+  const maxTilt = parseFloat(activeCard.dataset.tiltMax) || 6;
   activeCard.style.transform =
-    `perspective(1100px) rotateX(${((-tiltY * 6) / magnitude).toFixed(2)}deg) ` +
-    `rotateY(${((tiltX * 6) / magnitude).toFixed(2)}deg)`;
+    `perspective(1100px) rotateX(${((-tiltY * maxTilt) / magnitude).toFixed(2)}deg) ` +
+    `rotateY(${((tiltX * maxTilt) / magnitude).toFixed(2)}deg)`;
   activeCard.style.setProperty("--shx", glareX.toFixed(3));
   activeCard.style.setProperty("--shy", glareY.toFixed(3));
   // Keep gliding until the springs settle; nothing runs when idle.

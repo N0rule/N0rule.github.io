@@ -183,7 +183,7 @@ const entries = [
   ["Character collection", "Коллекция персонажей", "Колекція персонажів"],
   ["Characters", "Персонажи", "Персонажі"],
   ["Choose a 3D model", "Выбрать 3D-модель", "Вибрати 3D-модель"],
-  ["N0rule Original", "N0rule — оригинал", "N0rule — оригінал"],
+  ["N0rule Original", "N0rule - оригинал", "N0rule - оригінал"],
   ["View settings", "Настройки вида", "Налаштування вигляду"],
   ["Wireframe", "Каркас", "Каркас"],
   ["Auto-rotate", "Автовращение", "Автообертання"],
@@ -267,19 +267,19 @@ const entries = [
     "Попередній перегляд 3D-моделі {name}",
   ],
   [
-    "{name} — interactive 3D avatar",
-    "{name} — интерактивный 3D-аватар",
-    "{name} — інтерактивний 3D-аватар",
+    "{name} - interactive 3D avatar",
+    "{name} - интерактивный 3D-аватар",
+    "{name} - інтерактивний 3D-аватар",
   ],
   [
-    "N0rule — Developer & 3D Artist",
-    "N0rule — Разработчик и 3D-художник",
-    "N0rule — Розробник і 3D-художник",
+    "N0rule - Developer & 3D Artist",
+    "N0rule - Разработчик и 3D-художник",
+    "N0rule - Розробник і 3D-художник",
   ],
   [
-    "N0rule — developer and 3D artist. Explore custom hardware, bots, and VRChat characters.",
-    "N0rule — разработчик и 3D-художник. Устройства, боты и персонажи для VRChat.",
-    "N0rule — розробник і 3D-художник. Пристрої, боти та персонажі для VRChat.",
+    "N0rule - developer and 3D artist. Explore custom hardware, bots, and VRChat characters.",
+    "N0rule - разработчик и 3D-художник. Устройства, боты и персонажи для VRChat.",
+    "N0rule - розробник і 3D-художник. Пристрої, боти та персонажі для VRChat.",
   ],
   [
     "Code, custom hardware, and 3D characters.",
@@ -338,7 +338,7 @@ export function applyTranslations() {
         t(node.getAttribute(`data-i18n-${attribute}`)),
       );
     });
-  document.title = t("N0rule — Developer & 3D Artist");
+  document.title = t("N0rule - Developer & 3D Artist");
 }
 
 export function setLanguage(value, persist = true) {

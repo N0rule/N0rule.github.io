@@ -116,7 +116,7 @@ function loadModelIntoViewer() {
   viewer.removeAttribute("src");
   viewer.setAttribute(
     "alt",
-    t("{name} — interactive 3D avatar", { name: t(models[currentIndex].name) }),
+    t("{name} - interactive 3D avatar", { name: t(models[currentIndex].name) }),
   );
   viewer.setAttribute("src", `./models/${models[currentIndex].file}`);
   showStatus("Loading {name}…", { name: t(models[currentIndex].name) });
@@ -247,7 +247,7 @@ function syncGalleryLanguage() {
   modelPoster.alt = t("{name} 3D model preview", { name: modelName });
   document.querySelector("#stage-name").textContent = modelName;
   if (viewer)
-    viewer.alt = t("{name} — interactive 3D avatar", { name: modelName });
+    viewer.alt = t("{name} - interactive 3D avatar", { name: modelName });
   showStatus(
     statusKey,
     statusKey.includes("{name}") ? { name: modelName } : statusParams,
